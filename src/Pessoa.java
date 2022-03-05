@@ -1,19 +1,54 @@
-
 public abstract class Pessoa {
-	Pessoa() {
-		System.out.println("help");
+	private String nome;
+	private String endereco;
+	private int telefone;
+	private int CPF;
+
+	public String getNome(String nome) {
+
+		return nome;
+
 	}
 
-	public static void main(String[] args) {
-		Animal cachorro1 = new Animal();
-		cachorro1.nome = "Pluto";
-		cachorro1.idade = 2;
-		cachorro1.especie = "cachorro";
-		cachorro1.cuidados = "banho e tosa";
-		cachorro1.dono = new Dono();
-		cachorro1.dono.nome = "Carlos";
-		cachorro1.dono.cpf = "123.456.789-10";
-		cachorro1.status();
+	public void setNome(String nome) {
+
+		this.nome = nome;
+
+	}
+
+	public String getEndereco(String endereco) {
+
+		return endereco;
+
+	}
+
+	public void setEndereco(String endereco) {
+
+		this.endereco = endereco;
+
+	}
+
+	public int getTelefone(int telefone) {
+
+		return telefone;
+
+	}
+
+	public void setTelefone(int telefone) {
+
+		this.telefone = telefone;
+
+	}
+
+	public int getCpf(int CPF) {
+
+		return CPF;
+
+	}
+
+	public void setCpf(int CPF) {
+
+		this.CPF = CPF;
 
 	}
 

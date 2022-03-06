@@ -1,3 +1,4 @@
+package hospedagens;
 
 public class Anfitriao extends Pessoa {
 	private String nome;

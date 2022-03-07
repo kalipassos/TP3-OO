@@ -1,36 +1,36 @@
 package hospedagens;
 
-import java.util.Scanner;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import dados.Dados;
+import model.Anfitriao;
+import model.Animal;
+import model.Dono;
+import model.Hospedagem;
+import model.Pagamento;
+import util.Scan;
 
 public class Menu {
+        private final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-    public static void menu() {
-        Animal animal = new Animal();
-        animal.preCadastro();
+        public void inicio() throws ParseException {
+                // var string = Scan.nextLine();
 
-        System.out.println(
-                "Opcoes: 1- Cadastrar animal/n 2- Cadastrar novo dono/n 3- Listar animais/n 4- Listar donos/n 5- Cadastrar hospedagem/n 6- Visualizar hospedagem/n 7- Editar hospedagem/n 8- Sair");
+                var dono = new Dono("Zezinho", "Rua dos animais, 123", "123456789", "123.456.789-00");
+                dono.getAnimais()
+                                .add(new Animal("Bolinha", "Cachorro", "Bolinha é um cachorro muito fofo", "Pequeno", 3,
+                                                "M", "Nada"));
+                dono.getAnimais()
+                                .add(new Animal("Zeca", "Gato", "Zeca é um gato muito fofo", "Grande", 3, "M",
+                                                "Banho e tosa"));
 
-        Scanner sc = new Scanner(System.in);
-        int opcao = sc.nextInt();
-        switch (opcao) {
-            case 1:
+                var anfitriao = new Anfitriao("Ana", "Rua dos bobos", "123456789", "123.456.789-00",
+                                new Hospedagem(this.sdf.parse("01/01/2020"), this.sdf.parse("01/02/2020"),
+                                                "Banho e tosa",
+                                                new Pagamento("dinheiro", 245.23), dono.getAnimais().get(0)));
 
-                animal.cadastrarAnimal();
-                Controle.listaAnimais();
-                break;
-            case 2:
-                System.out.println("");
-                break;
-            case 3:
-
-                break;
-
-            default:
-                System.out.println("Saindo do programa");
-                break;
-
+                Dados.getDono().add(dono);
+                Dados.getAnfitriao().add(anfitriao);
+                System.out.println(dono.getAnimais());
         }
-
-    }
 }

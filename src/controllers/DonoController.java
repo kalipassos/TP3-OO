@@ -56,4 +56,17 @@ public class DonoController {
     return null;
 
   }
+
+  /*
+   * public Dono editarInfoDono(){
+   * 
+   * return null;
+   * }
+   */
+
+  /*
+   * public Dono deletarInformacaoDono(){
+   * 
+   * }
+   */
 }

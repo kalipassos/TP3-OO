@@ -33,6 +33,7 @@ public class DonoController {
 
     for (Dono dono : Dados.getDono()) {
       if (dono.getNome().equals(nomePesquisado)) {
+        System.out.println(dono);
         return dono;
       }
     }

@@ -7,6 +7,10 @@ public class Anfitriao extends Pessoa {
 		super();
 	}
 
+	public Anfitriao(String nome, String endereco, String telefone, String CPF) {
+		super(nome, endereco, telefone, CPF);
+	}
+
 	public Anfitriao(String nome, String endereco, String telefone, String CPF, Hospedagem hospedagem) {
 		super(nome, endereco, telefone, CPF);
 		this.hospedagem = hospedagem;

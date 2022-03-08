@@ -72,7 +72,7 @@ public class Menu {
                                         donoController.cadastrarDono();
                                         break;
                                 case 2:
-                                        donoController.visualizarDonoNome();
+                                        escolhaPesquisa();
                                         break;
                                 case 3:
                                         // editarDono();
@@ -89,6 +89,32 @@ public class Menu {
                                         break;
                         }
                 } while (opcaoDono != 5);
+        }
+
+        private void escolhaPesquisa() {
+                int escolha;
+
+                do {
+                        System.out.println(
+                                        "Escolha se deseja pesquisar por Nome(1) ou CPF(2) ou voltar para o menu de dono(3) :");
+                        escolha = Scan.nextInt();
+                        switch (escolha) {
+                                case 1:
+                                        donoController.visualizarDonoNome();
+                                        break;
+                                case 2:
+                                        donoController.visualizarDonoCpf();
+                                        break;
+                                case 3:
+                                        System.out.println("Voltando para a selecao...");
+                                        break;
+                                default:
+                                        System.out.println("Escolha uma opcao valida.");
+                                        break;
+                        }
+
+                } while (escolha != 3);
+
         }
 
         public void opcaoAnfitriao() {

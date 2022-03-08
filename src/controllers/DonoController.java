@@ -41,4 +41,19 @@ public class DonoController {
     return null;
   }
 
+  public Dono visualizarDonoCpf() {
+    String buscarCPF;
+    System.out.println("Digite o CPF no modelo xxx.xxx.xxx-xx:");
+    buscarCPF = Scan.nextLine();
+
+    for (Dono dono : Dados.getDono()) {
+      if (dono.getCPF().equals(buscarCPF)) {
+        System.out.println(dono);
+        return dono;
+      }
+    }
+    System.out.println("CPF nao cadastrado.");
+    return null;
+
+  }
 }

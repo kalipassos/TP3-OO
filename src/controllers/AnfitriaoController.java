@@ -1,10 +1,9 @@
 package controllers;
 
-import model.Dono;
+import model.Anfitriao;
 import data.Dados;
 import util.Scan;
 import model.Hospedagem;
-import model.Anfitriao;
 
 public class AnfitriaoController {
 

@@ -72,7 +72,7 @@ public class Menu {
                                         donoController.cadastrarDono();
                                         break;
                                 case 2:
-                                        // visualizarDono();
+                                        donoController.visualizarDonoNome();
                                         break;
                                 case 3:
                                         // editarDono();

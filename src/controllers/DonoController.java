@@ -26,15 +26,18 @@ public class DonoController {
 
   }
 
-  /*
-   * public void visualizarDonoNome() {
-   * String nomePesquisado;
-   * System.out.println("Nome a ser pesquisado:");
-   * nomePesquisado = Scan.nextLine();
-   * 
-   * for()
-   * 
-   * }
-   */
+  public Dono visualizarDonoNome() {
+    String nomePesquisado;
+    System.out.println("Nome a ser pesquisado:");
+    nomePesquisado = Scan.nextLine();
+
+    for (Dono dono : Dados.getDono()) {
+      if (dono.getNome().equals(nomePesquisado)) {
+        return dono;
+      }
+    }
+    System.out.println("Nome não encontrado");
+    return null;
+  }
 
 }

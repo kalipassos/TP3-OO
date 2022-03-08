@@ -7,7 +7,7 @@ import model.Hospedagem;
 
 public class AnfitriaoController {
 
-  public void CadastrarAnfitriao() {
+  public void cadastrarAnfitriao() {
     String nome, endereco, telefone, CPF;
 
     System.out.println("Nome do Anfitriao:");

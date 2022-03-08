@@ -2,17 +2,20 @@ package hospedagens;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import dados.Dados;
+
+import data.Dados;
 import model.Anfitriao;
 import model.Animal;
 import model.Dono;
 import model.Hospedagem;
 import model.Pagamento;
-import model.Pessoa;
+////import model.Pessoa;
 import util.Scan;
+import controllers.DonoController;
 
 public class Menu {
         private final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        private final DonoController donoController = new DonoController();
 
         public void menu() {
                 int opcao;
@@ -27,7 +30,7 @@ public class Menu {
                         switch (opcao) {
                                 case 1:
 
-                                        // opcaoDono;
+                                        opcaoDono();
                                         break;
                                 case 2:
 
@@ -66,7 +69,7 @@ public class Menu {
                         opcaoDono = Scan.nextInt();
                         switch (opcaoDono) {
                                 case 1:
-                                        // cadastrarDono();
+                                        donoController.cadastrarDono();
                                         break;
                                 case 2:
                                         // visualizarDono();

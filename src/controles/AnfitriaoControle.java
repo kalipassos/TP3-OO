@@ -1,11 +1,10 @@
-package controllers;
+package controles;
 
-import model.Anfitriao;
 import data.Dados;
+import modelos.Anfitriao;
 import util.Scan;
-import model.Hospedagem;
 
-public class AnfitriaoController {
+public class AnfitriaoControle {
 
   public void cadastrarAnfitriao() {
     String nome, endereco, telefone, CPF;

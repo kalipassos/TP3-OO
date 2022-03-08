@@ -1,4 +1,4 @@
-package model;
+package modelos;
 
 import java.util.Date;
 
@@ -18,12 +18,12 @@ public class Hospedagem {
     }
 
     public Hospedagem(Date dataEntrada, Date dataSaida, String adicionalHospedagem, Pagamento pagamento,
-            Animal animal) {
+            Animal animal) { // construtor com adicionais
         this.dataEntrada = dataEntrada;
         this.dataSaida = dataSaida;
         this.adicionalHospedagem = adicionalHospedagem;
         this.pagamento = pagamento;
-        this.animal = animal;
+        this.animal = animal; // animal que sera hospedado
     }
 
     public Date getDataEntrada() {

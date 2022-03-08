@@ -12,10 +12,12 @@ import model.Pagamento;
 ////import model.Pessoa;
 import util.Scan;
 import controllers.DonoController;
+import controllers.AnfitriaoController;
 
 public class Menu {
         private final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         private final DonoController donoController = new DonoController();
+        private final AnfitriaoController anfitriaoController = new AnfitriaoController();
 
         public void menu() {
                 int opcao;
@@ -129,7 +131,7 @@ public class Menu {
                         opcaoAnfitriao = Scan.nextInt();
                         switch (opcaoAnfitriao) {
                                 case 1:
-                                        // cadastrarAnfitriao();
+                                        anfitriaoController.cadastrarAnfitriao();
                                         break;
                                 case 2:
                                         // visualizarAnfitriao();

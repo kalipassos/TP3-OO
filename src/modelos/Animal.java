@@ -1,4 +1,4 @@
-package model;
+package modelos;
 
 public class Animal {
     private String nome;
@@ -9,7 +9,7 @@ public class Animal {
     private String sexo;
     private String cuidados;
 
-    public Animal(String nome, String especie, String porte, int idade, String sexo, String cuidados) {
+    public Animal(String nome, String especie, String porte, int idade, String sexo, String cuidados) { // Construtor
         this.nome = nome;
         this.especie = especie;
         this.porte = porte;
@@ -19,7 +19,7 @@ public class Animal {
     }
 
     public Animal(String nome, String especie, String biografia, String porte, int idade, String sexo,
-            String cuidados) {
+            String cuidados) { // Construtor com biografia
         this.nome = nome;
         this.especie = especie;
         this.biografia = biografia;
@@ -29,6 +29,7 @@ public class Animal {
         this.cuidados = cuidados;
     }
 
+    // getters e setters para todos os atributos
     public String getNome() {
         return nome;
     }
@@ -86,9 +87,10 @@ public class Animal {
     }
 
     @Override
-    public String toString() {
-        return String.format("Animal [nome=%s, especie=%s, biografia=%s, porte=%s, idade=%s, sexo=%s, cuidados=%s]",
-                nome, especie, biografia, porte, idade, sexo, cuidados);
+    public String toString() { // toString para imprimir os dados do animal
+        return String
+                .format("O animal " + nome + " é um(a) " + especie + " " + sexo + " de porte " + porte + " e cuidados "
+                        + cuidados + "\n Biografia: " + biografia + "\n");
     }
 
 }

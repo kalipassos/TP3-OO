@@ -1,4 +1,4 @@
-package model;
+package modelos;
 
 /*Classe abstrata
  */
@@ -54,7 +54,9 @@ public abstract class Pessoa {
 
 	@Override
 	public String toString() {
-		return "Pessoa [CPF=" + CPF + ", endereco=" + endereco + ", nome=" + nome + ", telefone=" + telefone + "]";
+		return "A Pessoa se chama: " + nome + ", seu endereço e: " + endereco + ", seu telefone e: " + telefone
+				+ " e seu CPF e: "
+				+ CPF + ".";
 	}
 
 }

@@ -1,7 +1,7 @@
 package data;
 
 import java.util.ArrayList;
-import model.*;
+import modelos.*;
 
 public class Dados {
 

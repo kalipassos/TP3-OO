@@ -9,7 +9,8 @@ public class Hospedagem {
     private Pagamento pagamento;
     private Animal animal;
 
-    public Hospedagem(Date dataEntrada, Date dataSaida, Pagamento pagamento, Animal animal) {
+    public Hospedagem(Date dataEntrada, Date dataSaida, Pagamento pagamento, Animal animal) { // construtor sem a
+                                                                                              // definicao de adicionais
         this.dataEntrada = dataEntrada;
         this.dataSaida = dataSaida;
         this.pagamento = pagamento;
@@ -26,6 +27,7 @@ public class Hospedagem {
         this.animal = animal; // animal que sera hospedado
     }
 
+    // getters e setters dos atributos
     public Date getDataEntrada() {
         return dataEntrada;
     }
@@ -59,9 +61,9 @@ public class Hospedagem {
     }
 
     @Override
-    public String toString() {
-        return "Hospedagem [adicionalHospedagem=" + adicionalHospedagem + ", animal=" + animal + ", dataEntrada="
-                + dataEntrada + ", dataSaida=" + dataSaida + ", pagamento=" + pagamento + "]";
+    public String toString() { // toString para impressao
+        return "A hospedagem do animal" + animal + " inicia-se em " + dataEntrada + " e termina-se em " + dataSaida
+                + "\n Informacoes de pagamento:" + pagamento + ".\n" + "Adicionais: " + adicionalHospedagem + ".";
     }
 
 }

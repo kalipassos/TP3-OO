@@ -2,7 +2,8 @@ package util;
 
 import java.util.Scanner;
 
-public class Scan {
+public class Scan { // * classe criada com base na usual Scanner, afim de evitar ter de
+    // colocar .nextLine() toda vez após uma leitura(evitar buffer).
 
     private Scan() {
 

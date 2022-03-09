@@ -1,9 +1,10 @@
-package model;
+package modelos;
 
-public class Anfitriao extends Pessoa {
+public class Anfitriao extends Pessoa { // classe Anfitriao que herda os atributos da classe abstrata Pessoa
 	private Hospedagem hospedagem;
 
-	public Anfitriao() {
+	public Anfitriao() { // construtor da classe Anfitriao que recebe os atributos da classe abstrata
+							// Pessoa
 		super();
 	}
 
@@ -11,7 +12,11 @@ public class Anfitriao extends Pessoa {
 		super(nome, endereco, telefone, CPF);
 	}
 
-	public Anfitriao(String nome, String endereco, String telefone, String CPF, Hospedagem hospedagem) {
+	public Anfitriao(String nome, String endereco, String telefone, String CPF, Hospedagem hospedagem) { // construtor
+																											// que
+																											// recebe
+																											// uma
+																											// hospedagem
 		super(nome, endereco, telefone, CPF);
 		this.hospedagem = hospedagem;
 	}

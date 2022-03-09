@@ -27,7 +27,7 @@ public class Pagamento {
 
     @Override
     public String toString() {
-        return "Pagamento [formaPagamento=" + formaPagamento + ", valorFinal=" + valorFinal + "]";
+        return "O pagamento será realizado em " + formaPagamento + " com o valor final de" + valorFinal + ".";
     }
 
 }

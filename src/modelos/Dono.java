@@ -1,4 +1,4 @@
-package model;
+package modelos;
 
 import java.util.ArrayList;
 
@@ -8,12 +8,13 @@ public class Dono extends Pessoa {
 
 	private final ArrayList<Animal> animais;
 
-	public Dono() {
+	public Dono() { // construtor do Dono que recebe os atributos da classe abstrata Pessoa
 		super();
 		this.animais = new ArrayList<>();
 	}
 
-	public Dono(String nome, String endereco, String telefone, String CPF) {
+	public Dono(String nome, String endereco, String telefone, String CPF) { // construtor que recebe atributos
+																				// especificos de Pessoa
 		super(nome, endereco, telefone, CPF);
 		this.animais = new ArrayList<>();
 
@@ -23,7 +24,9 @@ public class Dono extends Pessoa {
 		nome = Scan.nextLine();
 		for (Animal animal : animais) {
 			if (animal.getNome().equals(nome)) {
+				System.out.println("Animal encontrado");
 				return animal;
+
 			}
 		}
 		return null;

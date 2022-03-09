@@ -3,23 +3,23 @@ package hospedagens;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import controles.AnfitriaoControle;
+import controles.DonoControle;
 import data.Dados;
-import model.Anfitriao;
-import model.Animal;
-import model.Dono;
-import model.Hospedagem;
-import model.Pagamento;
+import modelos.Anfitriao;
+import modelos.Animal;
+import modelos.Dono;
+import modelos.Hospedagem;
+import modelos.Pagamento;
 ////import model.Pessoa;
 import util.Scan;
-import controllers.DonoController;
-import controllers.AnfitriaoController;
 
 public class Menu {
         private final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        private final DonoController donoController = new DonoController();
-        private final AnfitriaoController anfitriaoController = new AnfitriaoController();
+        private final DonoControle donoControle = new DonoControle();
+        private final AnfitriaoControle anfitriaoControle = new AnfitriaoControle();
 
-        public void menu() {
+        public void menu() { // metodo para mostrar o menu
                 int opcao;
                 do {
                         System.out.println("Escolha a opcao que deseja executar:");
@@ -36,11 +36,11 @@ public class Menu {
                                         break;
                                 case 2:
 
-                                        // opcaoAnfitriao;
+                                        opcaoAnfitriao();
                                         break;
                                 case 3:
 
-                                        // opcaoAnimal;
+                                        opcaoAnimal();
                                         break;
                                 case 4:
 
@@ -71,16 +71,16 @@ public class Menu {
                         opcaoDono = Scan.nextInt();
                         switch (opcaoDono) {
                                 case 1:
-                                        donoController.cadastrarDono();
+                                        donoControle.cadastrarDono();
                                         break;
                                 case 2:
                                         escolhaPesquisa();
                                         break;
                                 case 3:
-                                        // editarDono();
+                                        donoControle.editarDono();
                                         break;
                                 case 4:
-                                        // deletarDono();
+                                        donoControle.deletarDono();
                                         break;
                                 case 5:
 
@@ -102,10 +102,10 @@ public class Menu {
                         escolha = Scan.nextInt();
                         switch (escolha) {
                                 case 1:
-                                        donoController.visualizarDonoNome();
+                                        donoControle.visualizarDonoNome();
                                         break;
                                 case 2:
-                                        donoController.visualizarDonoCpf();
+                                        donoControle.visualizarDonoCpf();
                                         break;
                                 case 3:
                                         System.out.println("Voltando para a selecao...");
@@ -131,16 +131,16 @@ public class Menu {
                         opcaoAnfitriao = Scan.nextInt();
                         switch (opcaoAnfitriao) {
                                 case 1:
-                                        anfitriaoController.cadastrarAnfitriao();
+                                        anfitriaoControle.cadastrarAnfitriao();
                                         break;
                                 case 2:
-                                        // visualizarAnfitriao();
+                                        anfitriaoControle.listarAnfitriao();
                                         break;
                                 case 3:
-                                        // editarAnfitriao();
+                                        anfitriaoControle.editarAnfitriao();
                                         break;
                                 case 4:
-                                        // deletarAnfitriao();
+                                        anfitriaoControle.deletarAnfitriao();
                                         break;
                                 case 5:
 
@@ -158,18 +158,19 @@ public class Menu {
 
                 do {
                         System.out.println("Opcoes para Animal:");
-                        System.out.println("1-Cadastrar Animal:");
-                        System.out.println("2-Visualizar Animal:");
-                        System.out.println("3-Editar Animal:");
-                        System.out.println("4-Deletar Animal:");
+                        // System.out.println("1-Cadastrar Animal:");
+                        System.out.println("1-Visualizar Animal:");
+                        // System.out.println("3-Editar Animal:");
+                        // System.out.println("4-Deletar Animal:");
                         System.out.println("5-Escolher outra opcao...");
                         opcaoAnimal = Scan.nextInt();
                         switch (opcaoAnimal) {
                                 case 1:
-                                        // cadastrarAnimal;
+
+                                        donoControle.buscaDonoAnimal(); // visualizacao dos animais por dono
                                         break;
                                 case 2:
-                                        // visualizarAnimal;
+                                        //
                                         break;
                                 case 3:
                                         // editarAnimal;
@@ -247,29 +248,6 @@ public class Menu {
                                                 new Pagamento("dinheiro", 245.23), dono.getAnimais().get(0)));
 
                 Dados.getAnfitriao().add(anfitriao);
-                System.out.println(dono);
 
-        }
-
-        public void buscaDono() {
-                System.out.println("Digite o nome do Dono que quer buscar");
-                var nomeDono = Scan.nextLine();
-
-                if (Dados.getDono().get(0).getNome().equals(nomeDono)) {
-                        System.out.println("O Dono " + nomeDono + " e o nome de seus animais são: "
-                                        + Dados.getDono().get(0).getAnimais());
-                } else {
-                        System.out.println("Não encontramos o dono " + nomeDono);
-                }
-
-                System.out.println("Digite o CPF do Dono que quer buscar");
-                var cpfDono = Scan.nextLine();
-                if (Dados.getDono().get(0).getCPF().equals(cpfDono)) {
-                        System.out.println(
-                                        "O Dono" + nomeDono + "de cPF" + cpfDono + "e o nome de seus animais são: "
-                                                        + Dados.getDono().get(0).getAnimais());
-                } else {
-                        System.out.println("Não encontramos o dono " + nomeDono);
-                }
         }
 }

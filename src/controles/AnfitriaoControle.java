@@ -59,16 +59,11 @@ public class AnfitriaoControle {
 
   }
 
-  public Anfitriao editarAnfitriao() {
+  public Anfitriao editarAnfitriao() { // editar atributo de um anfitriao
     String nome, endereco, telefone, CPF;
     System.out.println("Digite o nome do Anfitriao que deseja editar:");
     var anf1 = Scan.nextLine();
     for (Anfitriao anfitriao : Dados.getAnfitriao()) {
-      if (anfitriao.getNome() != anf1) {
-        System.out.println("Anfitriao nao encontrado!");
-        return null;
-      }
-
       if (anfitriao.getNome().equals(anf1)) {
         System.out.println(anfitriao);
         System.out.println("O que deseja editar no dono?");
@@ -99,16 +94,16 @@ public class AnfitriaoControle {
           CPF = Scan.nextLine();
           anfitriao.setCPF(CPF);
           System.out.println("CPF editado para " + anfitriao.getCPF());
+        } else if (anf1 != anfitriao.getNome()) {
+          System.out.println("Anfitriao nao encontrado");
         }
+
       }
-      return anfitriao;
     }
-
     return null;
-
   }
 
-  public Anfitriao deletarAnfitriao() {
+  public Anfitriao deletarAnfitriao() { // delecao de anfitrioes
     String nome;
     System.out.println("Digite o nome do Anfitriao que deseja deletar:");
     nome = Scan.nextLine();
@@ -136,7 +131,7 @@ public class AnfitriaoControle {
 
   }
 
-  public void listarAnfitriao() {
+  public void listarAnfitriao() { // listar os anfitrioes cadastrados
     for (Anfitriao anfitriao : Dados.getAnfitriao()) {
       System.out.println("Esses sao os Anfitrioes cadastrados:");
       System.out.println(anfitriao);

@@ -71,16 +71,16 @@ public class Menu {
                         opcaoDono = Scan.nextInt();
                         switch (opcaoDono) {
                                 case 1:
-                                        donoControle.cadastrarDono();
+                                        donoControle.cadastroDono();
                                         break;
                                 case 2:
                                         escolhaPesquisa();
                                         break;
                                 case 3:
-                                        donoControle.editarDono();
+                                        donoControle.editaDono();
                                         break;
                                 case 4:
-                                        donoControle.deletarDono();
+                                        donoControle.deletaDono();
                                         break;
                                 case 5:
 
@@ -102,10 +102,10 @@ public class Menu {
                         escolha = Scan.nextInt();
                         switch (escolha) {
                                 case 1:
-                                        donoControle.visualizarDonoNome();
+                                        donoControle.visualizaDonoNome();
                                         break;
                                 case 2:
-                                        donoControle.visualizarDonoCpf();
+                                        donoControle.visualizaDonoCpf();
                                         break;
                                 case 3:
                                         System.out.println("Voltando para a selecao...");
@@ -158,25 +158,26 @@ public class Menu {
 
                 do {
                         System.out.println("Opcoes para Animal:");
-                        // System.out.println("1-Cadastrar Animal:");
-                        System.out.println("1-Visualizar Animal:");
-                        // System.out.println("3-Editar Animal:");
-                        // System.out.println("4-Deletar Animal:");
+                        System.out.println("1-Cadastrar Animal:");
+                        System.out.println("2-Visualizar Animal:");
+                        System.out.println("3-Editar Animal:");
+                        System.out.println("4-Deletar Animal:");
                         System.out.println("5-Escolher outra opcao...");
                         opcaoAnimal = Scan.nextInt();
                         switch (opcaoAnimal) {
                                 case 1:
+                                        System.out.println("Para cadastrar um animal, acesse as opcoes de Dono");
+                                        break;
 
+                                case 2:
                                         donoControle.buscaDonoAnimal(); // visualizacao dos animais por dono
                                         break;
-                                case 2:
-                                        //
-                                        break;
                                 case 3:
-                                        // editarAnimal;
+                                        donoControle.editaAnimalDono();
+
                                         break;
                                 case 4:
-                                        // deletarAnimal;
+                                        donoControle.deletaAnimalDono();
                                         break;
                                 case 5:
 
@@ -241,6 +242,7 @@ public class Menu {
                 dono.getAnimais()
                                 .add(new Animal("Bibizinha", "Cachorro", "Bibizinha e gentil", "M", 3,
                                                 "F", "Nada"));
+                Dados.getDono().add(dono);
 
                 var anfitriao = new Anfitriao("Ana", "Rua dos bobos", "123456789", "124.456.789-00",
                                 new Hospedagem(this.sdf.parse("01/01/2020"), this.sdf.parse("01/02/2020"),

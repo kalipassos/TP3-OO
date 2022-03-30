@@ -7,7 +7,7 @@ import util.Scan;
 
 public class DonoControle { // classe destinada ao controle dos CRUDs do Dono
 
-  public void cadastrarDono() {
+  public void cadastroDono() {
     String nome, endereco, telefone, CPF;
 
     System.out.println("Nome:");
@@ -22,11 +22,17 @@ public class DonoControle { // classe destinada ao controle dos CRUDs do Dono
     System.out.println("CPF:");
     CPF = Scan.nextLine();
 
-    System.out.println("Deseja cadastrar um animal? (s/n)");
+    System.out.println("Agora, sera realizado o cadastro do seu animal. Caso queira pular este passo, digite 'p'");
     String resposta = Scan.nextLine();
 
-    if (resposta == "s") {
-      System.out.println("Cadastre seu animal agora! \n Nome do Animal:");
+    if (resposta.equals("p")) {
+
+      Dono dono = new Dono(nome, endereco, telefone, CPF);
+      Dados.getDono().add(dono); // adicao do dono na lista de donos, sem um animal cadastrado
+      System.out.println("Dono cadastrado com sucesso!");
+    } else {
+
+      System.out.println(" Nome do Animal:");
       String nomeAnimal = Scan.nextLine();
 
       System.out.println("Especie do Animal:");
@@ -52,9 +58,10 @@ public class DonoControle { // classe destinada ao controle dos CRUDs do Dono
           .add(new Animal(nomeAnimal, especieAnimal, biografiaAnimal, porteAnimal, idadeAnimal, sexoAnimal,
               cuidadosAnimal)); // adicao do animal cadastrando na lista do dono referente
       Dados.getDono().add(dono); // adicao do dono na lista de donos
-    } else {
-      Dono dono = new Dono(nome, endereco, telefone, CPF);
-      Dados.getDono().add(dono); // adicao do dono na lista de donos, sem um animal cadastrado
+      dono.getAnimais().add(new Animal(nomeAnimal, especieAnimal, biografiaAnimal, porteAnimal, idadeAnimal,
+          sexoAnimal, cuidadosAnimal)); // adicao do animal na lista de animais
+      System.out.println("Dono e animal cadastrados com sucesso!");
+
     }
   }
 
@@ -62,15 +69,17 @@ public class DonoControle { // classe destinada ao controle dos CRUDs do Dono
     System.out.println("Digite o nome do Dono que quer buscar");
     var nomeDono = Scan.nextLine();
 
-    if (Dados.getDono().get(0).getNome().equals(nomeDono)) {
-      System.out.println(nomeDono + " tem em seu cadastro: "
-          + Dados.getDono().get(0).getAnimais());
-    } else {
-      System.out.println("Não encontramos o dono " + nomeDono);
+    for (Dono dono : Dados.getDono()) {
+      if (dono.getNome().equals(nomeDono)) {
+        System.out.println(dono + " tem em seu cadastro: " + dono.getAnimais());
+
+      } else {
+        System.out.println("Não encontramos o dono " + nomeDono);
+      }
     }
   }
 
-  public Dono visualizarDonoNome() { // metodo para visualizar um dono pelo nome
+  public Dono visualizaDonoNome() { // metodo para visualizar um dono pelo nome
     String nomePesquisado;
     System.out.println("Nome a ser pesquisado:");
     nomePesquisado = Scan.nextLine();
@@ -85,7 +94,7 @@ public class DonoControle { // classe destinada ao controle dos CRUDs do Dono
     return null;
   }
 
-  public Dono visualizarDonoCpf() { // metodo para visualizar um dono pelo CPF
+  public Dono visualizaDonoCpf() { // metodo para visualizar um dono pelo CPF
     String buscarCPF;
     System.out.println("Digite o CPF no modelo xxx.xxx.xxx-xx:");
     buscarCPF = Scan.nextLine();
@@ -100,7 +109,7 @@ public class DonoControle { // classe destinada ao controle dos CRUDs do Dono
     return null; // retorna null caso nao encontre o CPF
   }
 
-  public Dono editarDono() { // metodo para editar um dono
+  public Dono editaDono() { // metodo para editar um dono
     String nome, endereco, telefone, CPF;
 
     System.out.println("Nome do Dono que deseja editar:");
@@ -150,7 +159,7 @@ public class DonoControle { // classe destinada ao controle dos CRUDs do Dono
 
   }
 
-  public Dono deletarDono() { // metodo para deletar um dono
+  public Dono deletaDono() { // metodo para deletar um dono
     String nome;
     System.out.println("Nome do dono que deseja deletar:");
     nome = Scan.nextLine();
@@ -167,6 +176,75 @@ public class DonoControle { // classe destinada ao controle dos CRUDs do Dono
         } else if (dono.getNome() != nome) { // caso o dono nao seja encontrado
           System.out.println("Dono nao encontrado.");
           return null;
+        }
+      }
+    }
+    return null;
+  }
+
+  public Dono editaAnimalDono() {
+    String nomeDono, nomeAnimal;
+    System.out.println("Nome do dono que deseja editar:");
+    nomeDono = Scan.nextLine();
+    System.out.println("Nome do animal que deseja editar:");
+    nomeAnimal = Scan.nextLine();
+
+    for (Dono dono : Dados.getDono()) {
+      if (dono.getNome().equals(nomeDono)) {
+        for (Animal animal : dono.getAnimais()) {
+          if (animal.getNome().equals(nomeAnimal)) {
+            System.out.println(animal);
+            System.out.println("O que deseja editar no animal?");
+            System.out.println("1 - Biografia");
+            System.out.println("2 - Porte");
+            System.out.println("3 - Idade");
+            System.out.println("4 - Cuidados");
+            var edit = Scan.nextInt();
+
+            // estrutura if-else para editar o atributo escolhido pelo usuario
+            if (edit == 1) {
+              System.out.println("Digite a nova biografia:");
+              var biografiaAnimal = Scan.nextLine();
+              animal.setBiografia(biografiaAnimal);
+              System.out.println("Especie editada para " + animal.getBiografia());
+            } else if (edit == 2) {
+              System.out.println("Digite o novo porte:");
+              var porteAnimal = Scan.nextLine();
+              animal.setPorte(porteAnimal);
+              System.out.println("Especie editada para " + animal.getPorte());
+            } else if (edit == 3) {
+              System.out.println("Digite os novos cuidados:");
+              var cuidadosAnimal = Scan.nextLine();
+              animal.setCuidados(cuidadosAnimal);
+              System.out.println("Especie editada para " + animal.getCuidados());
+            } else if (edit == 4) {
+              System.out.println("Digite a nova idade:");
+              var idadeAnimal = Scan.nextInt();
+              animal.setIdade(idadeAnimal);
+              System.out.println("Especie editada para " + animal.getIdade());
+            }
+          }
+        }
+      }
+    }
+    return null;
+  }
+
+  public Dono deletaAnimalDono() {
+    String nomeDono, nomeAnimal;
+    System.out.println("Nome do dono que deseja deletar:");
+    nomeDono = Scan.nextLine();
+    System.out.println("Nome do animal que deseja deletar:");
+    nomeAnimal = Scan.nextLine();
+
+    for (Dono dono : Dados.getDono()) {
+      if (dono.getNome().equals(nomeDono)) {
+        for (Animal animal : dono.getAnimais()) {
+          if (animal.getNome().equals(nomeAnimal)) {
+            dono.getAnimais().remove(animal);
+            System.out.println("Animal deletado com sucesso.");
+            return dono;
+          }
         }
       }
     }

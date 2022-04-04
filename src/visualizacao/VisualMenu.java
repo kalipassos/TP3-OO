@@ -1,19 +1,22 @@
 package visualizacao;
 
 import java.awt.Font;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class VisualMenu {
+public class VisualMenu implements ActionListener {
   // Declarações acima do construtor, para melhor organização
   private JFrame frame;
-  private JButton botaoOpcaoDono;
-  private JButton botaoOpcaoAnimal;
-  private JButton botaoOpcaoHospedagem;
-  private JButton botaoOpcaoAnfitriao;
-  private JButton botaoSair;
+  private static JButton botaoOpcaoDono = new JButton("Opcoes Dono");
+  private static JButton botaoOpcaoAnimal = new JButton("Opcoes Pet");
+  private static JButton botaoOpcaoHospedagem = new JButton("Opcoes Hospedagem");
+  private static JButton botaoOpcaoAnfitriao = new JButton("Opcoes Anfitriao");
+  private static JButton botaoSair = new JButton("Sair");
   private JLabel mensagemInicial;
 
   public VisualMenu() {
@@ -30,8 +33,45 @@ public class VisualMenu {
     // inicial e que seja visível.
     frame.setTitle("Menu");
     frame.setSize(500, 500);
+    frame.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setVisible(true);
+    frame.add(mensagemInicial);// Adiciona a label(rotulo) a interface.
+    // adiciona os botoes existentes
+    frame.add(botaoOpcaoDono);
+    frame.add(botaoOpcaoAnimal);
+    frame.add(botaoOpcaoHospedagem);
+    frame.add(botaoOpcaoAnfitriao);
+    frame.add(botaoSair);
+
+  }
+
+  public static void main(String[] args) {
+    VisualMenu menu = new VisualMenu();
+
+    // criando a recepcao de comando dos botoes
+    botaoOpcaoDono.addActionListener(menu);
+    botaoOpcaoAnimal.addActionListener(menu);
+    botaoOpcaoHospedagem.addActionListener(menu);
+    botaoOpcaoAnfitriao.addActionListener(menu);
+    botaoSair.addActionListener(menu);
+
+  }
+
+  @Override
+  public void actionPerformed(ActionEvent e) {
+    Object receptor = e.getSource();
+    if (receptor == botaoOpcaoDono) {
+      new VisualDono();
+    } else if (receptor == botaoOpcaoAnimal) {
+      new VisualAnimal();
+    } else if (receptor == botaoOpcaoHospedagem) {
+      new VisualHospedagem();
+    } else if (receptor == botaoOpcaoAnfitriao) {
+      new VisualAnfitriao();
+    } else if (receptor == botaoSair) {
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
 
   }
 

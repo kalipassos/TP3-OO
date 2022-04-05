@@ -31,7 +31,7 @@ public class CadastrarAnimalVisual extends JFrame implements ActionListener {
 	private final JTextField cadastrarEspecie;
 	private final JTextArea textoBiografia;
 	private final JTextArea textoCuidados;
-	private final JButton botaoSalvar;
+	private final JButton botaoCadastrar;
 	private final JButton botaoCancelar;
 	private final JRadioButton botaoMasculino;
 	private final JRadioButton botaoFeminino;
@@ -113,12 +113,14 @@ public class CadastrarAnimalVisual extends JFrame implements ActionListener {
 		this.textoCuidados.setBounds(300, 153, 86, 55);
 		getContentPane().add(textoCuidados);
 
-		this.botaoSalvar = new JButton("Salvar");
-		this.botaoSalvar.setBounds(75, 365, 89, 23);
-		getContentPane().add(botaoSalvar);
+		this.botaoCadastrar = new JButton("Salvar");
+		this.botaoCadastrar.setBounds(75, 365, 89, 23);
+		this.botaoCadastrar.addActionListener(this);
+		getContentPane().add(botaoCadastrar);
 
 		this.botaoCancelar = new JButton("Cancelar");
 		this.botaoCancelar.setBounds(244, 365, 89, 23);
+		this.botaoCancelar.addActionListener(this);
 		getContentPane().add(botaoCancelar);
 
 		this.botaoMasculino = new JRadioButton("Masculino");
@@ -197,8 +199,8 @@ public class CadastrarAnimalVisual extends JFrame implements ActionListener {
 		return textoCuidados;
 	}
 
-	public JButton getBotaoSalvar() {
-		return botaoSalvar;
+	public JButton getBotaoCadastrar() {
+		return botaoCadastrar;
 	}
 
 	public JButton getBotaoCancelar() {

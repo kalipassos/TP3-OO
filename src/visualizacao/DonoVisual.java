@@ -29,30 +29,37 @@ public class DonoVisual extends JFrame implements ActionListener {
 
 		this.botaoCadastrarDono = new JButton("Cadastrar Dono");
 		this.botaoCadastrarDono.setBounds(48, 43, 137, 23);
+		this.botaoCadastrarDono.addActionListener(this);
 		getContentPane().add(botaoCadastrarDono);
 
 		this.botaoCadastrarAnimal = new JButton("Cadastrar Pet");
 		this.botaoCadastrarAnimal.setBounds(293, 43, 153, 23);
+		this.botaoCadastrarAnimal.addActionListener(this);
 		getContentPane().add(botaoCadastrarAnimal);
 
 		this.botaoBuscarDono = new JButton("Buscar Dono");
 		this.botaoBuscarDono.setBounds(48, 115, 137, 23);
+		this.botaoBuscarDono.addActionListener(this);
 		getContentPane().add(botaoBuscarDono);
 
 		this.botaoVisualizarDono = new JButton("Visualizar Dono");
 		this.botaoVisualizarDono.setBounds(293, 115, 153, 23);
+		this.botaoVisualizarDono.addActionListener(this);
 		getContentPane().add(botaoVisualizarDono);
 
 		this.botaoEditarDono = new JButton("Editar Dono");
 		this.botaoEditarDono.setBounds(48, 196, 137, 23);
+		this.botaoEditarDono.addActionListener(this);
 		getContentPane().add(botaoEditarDono);
 
 		this.botaoDeletarDono = new JButton("Deletar Dono");
 		this.botaoDeletarDono.setBounds(293, 196, 153, 23);
+		this.botaoDeletarDono.addActionListener(this);
 		getContentPane().add(botaoDeletarDono);
 
 		this.botaoVoltar = new JButton("Voltar");
 		this.botaoVoltar.setBounds(174, 290, 137, 23);
+		this.botaoVoltar.addActionListener(this);
 		getContentPane().add(botaoVoltar);
 
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);

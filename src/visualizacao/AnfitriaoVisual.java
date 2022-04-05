@@ -28,26 +28,32 @@ public class AnfitriaoVisual extends JFrame implements ActionListener {
 
 		this.botaoCadastrarAnfitriao = new JButton("Cadastrar Anfitriao");
 		this.botaoCadastrarAnfitriao.setBounds(37, 25, 132, 23);
+		this.botaoCadastrarAnfitriao.addActionListener(this);
 		getContentPane().add(botaoCadastrarAnfitriao);
 
 		this.botaoBuscarAnfitriao = new JButton("Buscar Anfitriao");
 		this.botaoBuscarAnfitriao.setBounds(271, 25, 132, 23);
+		this.botaoBuscarAnfitriao.addActionListener(this);
 		getContentPane().add(botaoBuscarAnfitriao);
 
 		this.botaoVisualizarAnfitriao = new JButton("Visualizar Anfitriao");
 		this.botaoVisualizarAnfitriao.setBounds(37, 91, 132, 23);
+		this.botaoVisualizarAnfitriao.addActionListener(this);
 		getContentPane().add(botaoVisualizarAnfitriao);
 
 		this.botaoEditarAnfitriao = new JButton("Editar Anfitriao");
 		this.botaoEditarAnfitriao.setBounds(271, 91, 132, 23);
+		this.botaoEditarAnfitriao.addActionListener(this);
 		getContentPane().add(botaoEditarAnfitriao);
 
 		this.botaoDeletarAnfitriao = new JButton("Deletar Anfitriao");
 		this.botaoDeletarAnfitriao.setBounds(37, 162, 132, 23);
+		this.botaoDeletarAnfitriao.addActionListener(this);
 		getContentPane().add(botaoDeletarAnfitriao);
 
 		this.botaoVoltar = new JButton("Voltar");
 		this.botaoVoltar.setBounds(271, 162, 132, 23);
+		this.botaoVoltar.addActionListener(this);
 		getContentPane().add(botaoVoltar);
 
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);

@@ -44,14 +44,17 @@ public class PagamentoVisual extends JFrame implements ActionListener {
 
 		this.botaoCredito = new JRadioButton("Credito");
 		this.botaoCredito.setBounds(35, 117, 70, 23);
+		this.botaoCredito.addActionListener(this);
 		getContentPane().add(botaoCredito);
 
 		this.botaoDebito = new JRadioButton("Debito");
 		this.botaoDebito.setBounds(159, 117, 65, 23);
+		this.botaoDebito.addActionListener(this);
 		getContentPane().add(botaoDebito);
 
 		this.botaoDinheiro = new JRadioButton("Dinheiro");
 		this.botaoDinheiro.setBounds(281, 117, 70, 23);
+		this.botaoDinheiro.addActionListener(this);
 		getContentPane().add(botaoDinheiro);
 
 		this.grupoBotaoRadio = new ButtonGroup();
@@ -83,10 +86,12 @@ public class PagamentoVisual extends JFrame implements ActionListener {
 
 		this.botaoConfirmar = new JButton("Confirmar");
 		this.botaoConfirmar.setBounds(56, 317, 89, 23);
+		this.botaoConfirmar.addActionListener(this);
 		getContentPane().add(botaoConfirmar);
 
 		this.botaoApagar = new JButton("Apagar");
 		this.botaoApagar.setBounds(262, 317, 89, 23);
+		this.botaoApagar.addActionListener(this);
 		getContentPane().add(botaoApagar);
 
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);

@@ -1,36 +1,30 @@
 package controles;
 
+import javax.swing.JButton;
+
 import data.Dados;
 import modelos.Anfitriao;
 import util.Scan;
+import visualizacao.VisualAnfitriao;
 
 public class AnfitriaoControle {
 
-  public void cadastroAnfitriao() {
+  public void cadastroAnfitriao(JButton botaoSelecionado) {
     String nome, endereco, telefone, CPF;
 
-    System.out.println("Nome do Anfitriao:");
-    nome = Scan.nextLine();
+    if (botaoSelecionado.equals(VisualAnfitriao.getButtonConfirmar())) {
+      Anfitriao anfiParaCadastrar = criaAnfitriao();
 
-    System.out.println("Endereco do Anfitriao:");
-    endereco = Scan.nextLine();
+      if (anfiParaCadastrar != null) {
+        Dados.getAnfitriao().add(anfiParaCadastrar);
+      }
+    } else {
+      VisualAnfitriao.getTextFieldNome().setText(null);
+      VisualAnfitriao.getTextFieldEndereco().setText(null);
+      VisualAnfitriao.getTextFieldTelefone().setText(null);
+      VisualAnfitriao.getTextFieldCPF().setText(null);
 
-    System.out.println("Telefone do Anfitriao:");
-    telefone = Scan.nextLine();
-
-    System.out.println("CPF do Anfitriao:");
-    CPF = Scan.nextLine();
-
-    // Anfitriao anfitriao = new Anfitriao(nome, endereco, telefone, CPF);
-    // anfitriao.getHospedagem();
-    // .add(new Hospedagem(dataEntrada, dataSaida, informacao, respostaPagamento,
-    // animal,
-    // .add(new Pagamento(formaPagamento, valorPagamento);
-    // Dados.getAnfitriao().add(anfitriao);
-    // } else {
-    Anfitriao anfitriao = new Anfitriao(nome, endereco, telefone, CPF);
-    Dados.getAnfitriao().add(anfitriao);
-
+    }
   }
 
   public Anfitriao editaAnfitriao() { // editar atributo de um anfitriao
@@ -77,37 +71,41 @@ public class AnfitriaoControle {
     return null;
   }
 
-  public Anfitriao deletaAnfitriao() { // delecao de anfitrioes
-    String nome;
-    System.out.println("Digite o nome do Anfitriao que deseja deletar:");
-    nome = Scan.nextLine();
+  public void deletaAnfitriao(JButton botaoSelecionado) {
+    if (botaoSelecionado.equals(VisualAnfitriao.getButtonConfirmar())) {
+      Anfitriao anfiParaDelecao = deletaAnfitriao();
 
-    for (Anfitriao anfitriao : Dados.getAnfitriao()) {
-      if (anfitriao.getNome().equals(nome)) {
-        System.out.println("Anfitriao encontrado!");
-        System.out.println(anfitriao);
-        System.out.println("Deseja deletar o Anfitriao? (s/n)");
-        var resposta = Scan.nextLine();
-        if (resposta == "s") {
-          Dados.getAnfitriao().remove(anfitriao);
-          System.out.println("Anfitriao deletado com sucesso!");
-          return anfitriao;
-        } else {
-          System.out.println("Anfitriao nao deletado!");
-        }
-        if (anfitriao.getNome() != nome) {
-          System.out.println("Anfitriao nao encontrado!");
-          return null;
-        }
+      if (anfiParaDelecao != VisualAnfitriao.getAnfitriaoSelecionado()) {
+        Dados.getAnfitriao().remove(anfiParaDelecao);
       }
+    } else {
+      view.getTextFieldNome().setText(null);
+      view.getTextFieldIdade().setText(null);
     }
-    return null;
-
   }
 
-  public void listaAnfitriao() { // listar os anfitrioes cadastrados
+  private Anfitriao criaAnfitriao() {
+    Anfitriao anfitriao = new Anfitriao();
+    String nome, endereco, telefone, CPF;
+
+    nome = VisualAnfitriao.getTextFieldNome().getText();
+    anfitriao.setNome(nome);
+
+    cpf = VisualAnfitriao.getTextFieldCPF().getText();
+    anfitriao.setCPF(cpf);
+
+    endereco = VisualAnfitriao.getTextFieldEndereco().getText();
+    anfitriao.setEndereco(endereco);
+
+    telefone = VisualAnfitriao.getTextFieldTelefone().getText();
+    anfitriao.setTelefone(telefone);
+
+    return anfitriao;
+  }
+
+  public void listaAnfitriao(JButton botaoSelecionados) { // listar os anfitrioes cadastrados
     for (Anfitriao anfitriao : Dados.getAnfitriao()) {
-      System.out.println("Esses sao os Anfitrioes cadastrados:");
+
       System.out.println(anfitriao);
     }
   }

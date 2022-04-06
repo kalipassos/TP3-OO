@@ -29,6 +29,9 @@ public class Animal {
         this.cuidados = cuidados;
     }
 
+    public Animal() {
+    }
+
     // getters e setters para todos os atributos
     public String getNome() {
         return nome;

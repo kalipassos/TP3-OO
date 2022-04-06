@@ -1,16 +1,16 @@
 package modelos;
 
-import java.util.Date;
+import java.util.String;
 
 public class Hospedagem {
-    private final Date dataEntrada;
-    private final Date dataSaida;
+    private final String dataEntrada;
+    private final String dataSaida;
     private String adicionalHospedagem;
     private Pagamento pagamento;
     private Animal animal;
 
-    public Hospedagem(Date dataEntrada, Date dataSaida, Pagamento pagamento, Animal animal) { // construtor sem a
-                                                                                              // definicao de adicionais
+    public Hospedagem(String dataEntrada, String dataSaida, Pagamento pagamento, Animal animal) { // construtor sem a
+        // definicao de adicionais
         this.dataEntrada = dataEntrada;
         this.dataSaida = dataSaida;
         this.pagamento = pagamento;
@@ -18,7 +18,7 @@ public class Hospedagem {
 
     }
 
-    public Hospedagem(Date dataEntrada, Date dataSaida, String adicionalHospedagem, Pagamento pagamento,
+    public Hospedagem(String dataEntrada, String dataSaida, String adicionalHospedagem, Pagamento pagamento,
             Animal animal) { // construtor com adicionais
         this.dataEntrada = dataEntrada;
         this.dataSaida = dataSaida;
@@ -28,11 +28,11 @@ public class Hospedagem {
     }
 
     // getters e setters dos atributos
-    public Date getDataEntrada() {
+    public String getDataEntrada() {
         return dataEntrada;
     }
 
-    public Date getDataSaida() {
+    public String getDataSaida() {
         return dataSaida;
     }
 

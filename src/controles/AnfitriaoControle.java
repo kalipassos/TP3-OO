@@ -2,8 +2,7 @@ package controles;
 
 import javax.swing.JButton;
 
-import visualizacao.AnfitriaoVisual;
-import visualizacao.CadastrarAnfitriaoVisual;
+import visualizacao.*;
 
 public class AnfitriaoControle {
     private final AnfitriaoVisual visualizacao;
@@ -17,13 +16,13 @@ public class AnfitriaoControle {
             new CadastrarAnfitriaoVisual().setVisible(true);
             visualizacao.dispose();
         } else if (botaoSelecionado.equals(visualizacao.getBotaoBuscarAnfitriao())) {
-            new CadastrarAnfitriaoVisual().setVisible(true);
+            new BuscaAnfitriaoVisual().setVisible(true);
             visualizacao.dispose();
         } else if (botaoSelecionado.equals(visualizacao.getBotaoVisualizarAnfitriao())) {
-            new CadastrarAnfitriaoVisual().setVisible(true);
+            new VisualizaAnfitriaoVisual().setVisible(true);
             visualizacao.dispose();
         } else if (botaoSelecionado.equals(visualizacao.getBotaoEditarAnfitriao())) {
-            new CadastrarAnfitriaoVisual().setVisible(true);
+            new EditarAnfitriaoVisual().setVisible(true);
         } else if (botaoSelecionado.equals(visualizacao.getBotaoVoltar())) {
             visualizacao.dispose();
         }

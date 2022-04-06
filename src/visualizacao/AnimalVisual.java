@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import controles.AnimalControle;
+
 public class AnimalVisual extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 6754115315165831479L;
 
@@ -18,9 +20,12 @@ public class AnimalVisual extends JFrame implements ActionListener {
 	private final JButton botaoEditarPet;
 	private final JButton botaoDeletarPet;
 	private final JButton botaoVoltar;
+	private final AnimalControle controle;
 
 	public AnimalVisual() {
 		getContentPane().setLayout(null);
+
+		controle = new AnimalControle(this);
 
 		this.mensagemInicial = new JLabel("O que deseja fazer");
 		this.mensagemInicial.setHorizontalAlignment(SwingConstants.CENTER);
@@ -89,7 +94,7 @@ public class AnimalVisual extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		controle.executaBotao((JButton) e.getSource());
 
 	}
 }

@@ -9,6 +9,8 @@ public class Dados {
 
     private static final ArrayList<Anfitriao> anfitriao = new ArrayList<>();
 
+    private static final ArrayList<Animal> animais = new ArrayList<>();
+
     private Dados() {
 
     }
@@ -19,6 +21,10 @@ public class Dados {
 
     public static ArrayList<Anfitriao> getAnfitriao() {
         return anfitriao;
+    }
+
+    public static ArrayList<Animal> getAnimal() {
+        return animais;
     }
 
 }

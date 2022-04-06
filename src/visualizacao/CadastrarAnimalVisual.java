@@ -14,6 +14,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import controles.CadastrarAnimalControle;
+
 public class CadastrarAnimalVisual extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1555595178665863290L;
 	private final JLabel mensagemInicial;
@@ -38,9 +40,12 @@ public class CadastrarAnimalVisual extends JFrame implements ActionListener {
 	private final ButtonGroup grupoBotaoRadio;
 	private final JComboBox<String> selecionaDono;
 	private DefaultComboBoxModel<String> lista = new DefaultComboBoxModel<>();
+	private final CadastrarAnimalControle controle;
 
 	public CadastrarAnimalVisual() {
 		getContentPane().setLayout(null);
+
+		controle = new CadastrarAnimalControle(this);
 
 		this.mensagemInicial = new JLabel("Cadastrar Pet");
 		this.mensagemInicial.setHorizontalAlignment(SwingConstants.CENTER);
@@ -225,7 +230,7 @@ public class CadastrarAnimalVisual extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		controle.executaBotao((JButton) e.getSource());
 
 	}
 }

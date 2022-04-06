@@ -4,6 +4,7 @@ import javax.swing.JButton;
 
 import data.Dados;
 import modelos.Anfitriao;
+import modelos.Hospedagem;
 import visualizacao.CadastrarAnfitriaoVisual;
 
 public class CadastrarAnfitriaoControle {
@@ -28,6 +29,7 @@ public class CadastrarAnfitriaoControle {
       visualizacao.getTextoEndereco().setText(null);
       visualizacao.getTextoTelefone().setText(null);
       visualizacao.getTextoCPF().setText(null);
+      visualizacao.getTextoHospedagem().setText(null);
 
     }
   }
@@ -35,6 +37,7 @@ public class CadastrarAnfitriaoControle {
   private Anfitriao criaAnfitriao() {
     Anfitriao anfitriao = new Anfitriao();
     String nome, endereco, telefone, CPF;
+    Hospedagem hospedagem;
 
     nome = visualizacao.getTextoNome().getText();
     anfitriao.setNome(nome);
@@ -47,6 +50,9 @@ public class CadastrarAnfitriaoControle {
 
     telefone = visualizacao.getTextoTelefone().getText();
     anfitriao.setTelefone(telefone);
+
+    hospedagem = visualizacao.getTextoHospedagem().getText();
+    anfitriao.setHospedagem(hospedagem);
 
     return anfitriao;
   }

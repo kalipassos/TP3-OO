@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import controles.CadastrarDonoControle;
+
 public class CadastrarDonoVisual extends JFrame implements ActionListener {
 	private static final long serialVersionUID = -5948886401444271227L;
 	private final JLabel mensagemInicial;
@@ -22,8 +24,11 @@ public class CadastrarDonoVisual extends JFrame implements ActionListener {
 	private final JTextField textoCPF;
 	private final JButton botaoCadastrar;
 	private final JButton botaoCancelar;
+	private final CadastrarDonoControle controle;
 
 	public CadastrarDonoVisual() {
+
+		controle = new CadastrarDonoControle(this);
 
 		this.mensagemInicial = new JLabel("Preencha os campos");
 		this.mensagemInicial.setHorizontalAlignment(SwingConstants.CENTER);
@@ -110,6 +115,7 @@ public class CadastrarDonoVisual extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
+		controle.executaBotao((JButton) e.getSource());
 	}
 
 }

@@ -61,6 +61,7 @@ public class MenuVisual extends JFrame implements ActionListener {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setSize(500, 400);
 		this.setResizable(false);
+
 	}
 
 	public static void main(String[] args) {

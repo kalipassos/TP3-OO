@@ -2,7 +2,10 @@ package controles;
 
 import javax.swing.JButton;
 
+import visualizacao.AnfitriaoVisual;
+import visualizacao.AnimalVisual;
 import visualizacao.DonoVisual;
+import visualizacao.HospedagemVisual;
 import visualizacao.MenuVisual;
 
 public class MenuControle {
@@ -15,18 +18,19 @@ public class MenuControle {
 
 	public void executarBotao(JButton botaoSelecionado) {
 		if (botaoSelecionado.equals(view.getBotaoOpcaoDono())) {
-
-		} else if (botaoSelecionado.equals(view.getBotaoOpcaoAnimal())) {
 			new DonoVisual().setVisible(true);
 			view.dispose();
+		} else if (botaoSelecionado.equals(view.getBotaoOpcaoAnimal())) {
+			new AnimalVisual().setVisible(true);
+			view.dispose();
 		} else if (botaoSelecionado.equals(view.getBotaoOpcaoAnfitriao())) {
-
+			new AnfitriaoVisual().setVisible(true);
+			view.dispose();
 		} else if (botaoSelecionado.equals(view.getBotaoOpcaoHospedagem())) {
-
+			new HospedagemVisual().setVisible(true);
 		} else if (botaoSelecionado.equals(view.getBotaoSair())) {
 			view.dispose();
 		}
 	}
 
 }
-

@@ -2,10 +2,6 @@ package controles;
 
 import javax.swing.JButton;
 
-import data.Dados;
-import modelos.Animal;
-import modelos.Dono;
-import util.Scan;
 import visualizacao.CadastrarDonoVisual;
 import visualizacao.DonoVisual;
 

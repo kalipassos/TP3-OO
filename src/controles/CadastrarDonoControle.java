@@ -44,10 +44,18 @@ public class CadastrarDonoControle {
         Dono dono = new Dono();
         String nome, endereco, telefone, CPF;
 
-        nome = dono.getNome().getTextoNome();
+        nome = visualizacao.getTextoNome().getText();
         dono.setNome(nome);
 
-        CPF = dono.getCPF().getText();
+        CPF = visualizacao.getTextoCPF().getText();
         dono.setCPF(CPF);
+
+        endereco = visualizacao.getTextoEndereco().getText();
+        dono.setEndereco(endereco);
+
+        telefone = visualizacao.getTextoTelefone().getText();
+        dono.setTelefone(telefone);
+
+        return dono;
     }
 }

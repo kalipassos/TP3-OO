@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import controles.HospedagemControle;
+
 public class HospedagemVisual extends JFrame implements ActionListener {
 	private static final long serialVersionUID = -1061801076605179407L;
 	private final JLabel mensagemInicial;
@@ -17,9 +19,11 @@ public class HospedagemVisual extends JFrame implements ActionListener {
 	private final JButton botaoEditarHospedagem;
 	private final JButton botaoDeletarHospedagem;
 	private final JButton botaoVoltar;
+	private final HospedagemControle controle;
 
 	public HospedagemVisual() {
 		getContentPane().setLayout(null);
+		controle = new HospedagemControle(this);
 
 		this.mensagemInicial = new JLabel("O que deseja fazer");
 		this.mensagemInicial.setHorizontalAlignment(SwingConstants.CENTER);
@@ -88,6 +92,6 @@ public class HospedagemVisual extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		controle.executaBotao((JButton) e.getSource());
 	}
 }

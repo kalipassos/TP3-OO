@@ -4,7 +4,6 @@ import javax.swing.JButton;
 
 import data.Dados;
 import modelos.Anfitriao;
-import util.Scan;
 import visualizacao.CadastrarAnfitriaoVisual;
 
 public class CadastrarAnfitriaoControle {

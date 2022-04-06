@@ -8,8 +8,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import controles.DonoControle;
+
 public class DonoVisual extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
+
 	private final JLabel mensagemInicial;
 	private final JButton botaoCadastrarDono;
 	private final JButton botaoCadastrarAnimal;
@@ -18,9 +21,12 @@ public class DonoVisual extends JFrame implements ActionListener {
 	private final JButton botaoEditarDono;
 	private final JButton botaoDeletarDono;
 	private final JButton botaoVoltar;
+	private final DonoControle controle;
 
 	public DonoVisual() {
 		getContentPane().setLayout(null);
+
+		controle = new DonoControle(this);
 
 		this.mensagemInicial = new JLabel("O que deseja fazer");
 		this.mensagemInicial.setHorizontalAlignment(SwingConstants.CENTER);

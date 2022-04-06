@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import controles.AnfitriaoControle;
+
 public class AnfitriaoVisual extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 2172162849981673065L;
 	private final JLabel mensagemInicial;
@@ -17,9 +19,11 @@ public class AnfitriaoVisual extends JFrame implements ActionListener {
 	private final JButton botaoEditarAnfitriao;
 	private final JButton botaoDeletarAnfitriao;
 	private final JButton botaoVoltar;
+	private final AnfitriaoControle controle;
 
 	public AnfitriaoVisual() {
 		getContentPane().setLayout(null);
+		controle = new AnfitriaoControle(this);
 
 		this.mensagemInicial = new JLabel("O que deseja fazer");
 		this.mensagemInicial.setHorizontalAlignment(SwingConstants.CENTER);
@@ -87,6 +91,6 @@ public class AnfitriaoVisual extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		controle.executaBotao((JButton) e.getSource());
 	}
 }

@@ -9,7 +9,10 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import controles.CadastrarAnfitriaoControle;
+
 public class CadastrarAnfitriaoVisual extends JFrame implements ActionListener {
+
 	private static final long serialVersionUID = -3412887469811763103L;
 	private final JLabel mensagemInicial;
 	private final JLabel rotuloNome;
@@ -18,15 +21,18 @@ public class CadastrarAnfitriaoVisual extends JFrame implements ActionListener {
 	private final JLabel rotuloCPF;
 	private final JLabel rotuloHospedagem;
 	private final JTextField textoNome;
-	private final JTextField textoEndereço;
+	private final JTextField textoEndereco;
 	private final JTextField textoTelefone;
 	private final JTextField textoCPF;
 	private final JTextField textoHospedagem;
 	private final JButton botaoCadastrar;
 	private final JButton botaoCancelar;
+	private final CadastrarAnfitriaoControle controle;
 
 	public CadastrarAnfitriaoVisual() {
 		getContentPane().setLayout(null);
+
+		controle = new CadastrarAnfitriaoControle(this);
 
 		this.mensagemInicial = new JLabel("Preencha os campos");
 		this.mensagemInicial.setHorizontalAlignment(SwingConstants.CENTER);
@@ -46,10 +52,10 @@ public class CadastrarAnfitriaoVisual extends JFrame implements ActionListener {
 		this.rotuloEndereco.setBounds(29, 72, 46, 14);
 		getContentPane().add(rotuloEndereco);
 
-		this.textoEndereço = new JTextField();
-		this.textoEndereço.setBounds(144, 69, 86, 20);
-		this.textoEndereço.setColumns(10);
-		getContentPane().add(textoEndereço);
+		this.textoEndereco = new JTextField();
+		this.textoEndereco.setBounds(144, 69, 86, 20);
+		this.textoEndereco.setColumns(10);
+		getContentPane().add(textoEndereco);
 
 		this.rotuloTelefone = new JLabel("Telefone");
 		this.rotuloTelefone.setBounds(29, 121, 46, 14);
@@ -98,8 +104,8 @@ public class CadastrarAnfitriaoVisual extends JFrame implements ActionListener {
 		return textoNome;
 	}
 
-	public JTextField getTextoEndereço() {
-		return textoEndereço;
+	public JTextField getTextoEndereco() {
+		return textoEndereco;
 	}
 
 	public JTextField getTextoTelefone() {
@@ -124,6 +130,8 @@ public class CadastrarAnfitriaoVisual extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+
+		controle.cadastroAnfitriao((JButton) e.getSource());
 
 	}
 }

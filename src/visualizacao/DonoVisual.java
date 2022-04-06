@@ -104,6 +104,6 @@ public class DonoVisual extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		controle.executaBotao((JButton) e.getSource());
 	}
 }

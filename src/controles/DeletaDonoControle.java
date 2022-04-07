@@ -69,5 +69,6 @@ public class DeletaDonoControle {
 
     private void deletarDono(int donoSelecionado) {
         Dados.getDono().remove(donoSelecionado);
+        atualizarListaDonos();
     }
 }

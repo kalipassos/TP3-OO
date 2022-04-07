@@ -1,5 +1,6 @@
 package modelos;
 
+import java.awt.Component;
 import java.util.ArrayList;
 
 public class Anfitriao extends Pessoa { // classe Anfitriao que herda os atributos da classe abstrata Pessoa
@@ -34,5 +35,20 @@ public class Anfitriao extends Pessoa { // classe Anfitriao que herda os atribut
 	 * public void setHospedagem(Hospedagem hospedagem) { this.hospedagem =
 	 * hospedagem; }
 	 */
+
+	public Component getAnfitriao() {
+		return null;
+	}
+
+	public void remove(int anfitriaoSelecionado) {
+	}
+
+	public int size() {
+		return 0;
+	}
+
+	public Pessoa get(int i) {
+		return null;
+	}
 
 }

@@ -115,7 +115,7 @@ public class CadastrarDonoVisual extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		controle.executaBotao((JButton) e.getSource());
+		controle.executaCadastroD((JButton) e.getSource());
 	}
 
 }

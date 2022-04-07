@@ -1,5 +1,6 @@
 package modelos;
 
+import java.awt.Component;
 import java.util.ArrayList;
 
 import util.Scan;
@@ -41,5 +42,20 @@ public class Dono extends Pessoa {
 
 	public ArrayList<Animal> getAnimais() {
 		return animais;
+	}
+
+	public Component getDono() {
+		return null;
+	}
+
+	public void remove(int donoSelecionado) {
+	}
+
+	public int size() {
+		return 0;
+	}
+
+	public Pessoa get(int i) {
+		return null;
 	}
 }

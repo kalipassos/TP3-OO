@@ -4,6 +4,7 @@ import javax.swing.JButton;
 
 import data.Dados;
 import modelos.Animal;
+import modelos.Dono;
 import visualizacao.CadastrarAnimalVisual;
 
 public class CadastrarAnimalControle {
@@ -27,7 +28,7 @@ public class CadastrarAnimalControle {
             Animal ParaCadastrar = criaAnimal();
 
             if (ParaCadastrar != null) {
-                Dados.getAnimal().add(ParaCadastrar);
+                Dados.getDono().get(0).getAnimais().add(ParaCadastrar);
             }
         } else {
             visualizacao.getSelecionaDono().setToolTipText(null);

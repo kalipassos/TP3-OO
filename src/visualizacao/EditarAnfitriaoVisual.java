@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import controles.EditarAnfitriaoControle;
+
 public class EditarAnfitriaoVisual extends JFrame implements ActionListener {
 	private static final long serialVersionUID = -5917564379856759625L;
 	private final JLabel mensagemInicial;
@@ -22,13 +24,16 @@ public class EditarAnfitriaoVisual extends JFrame implements ActionListener {
 	private final JTextField textoNome;
 	private final JTextField textoEndereco;
 	private final JTextField textoTelefone;
-	private final JComboBox<String> selecionaHospedagem;
+	private final JComboBox<String> selecionaAnfitriao;
 	private final JComboBox<String> listaHospedagem;
 	private final JButton botaoAlterar;
 	private final JButton botaoReverter;
+	private final EditarAnfitriaoControle controle;
 
 	public EditarAnfitriaoVisual() {
 		getContentPane().setLayout(null);
+
+		controle = new EditarAnfitriaoControle(this);
 
 		this.mensagemInicial = new JLabel("Ferramenta de Edicao");
 		this.mensagemInicial.setHorizontalAlignment(SwingConstants.CENTER);
@@ -39,9 +44,9 @@ public class EditarAnfitriaoVisual extends JFrame implements ActionListener {
 		this.rotuloAnfitriao.setBounds(10, 50, 160, 14);
 		getContentPane().add(rotuloAnfitriao);
 
-		this.selecionaHospedagem = new JComboBox<String>();
-		this.selecionaHospedagem.setBounds(180, 46, 108, 22);
-		getContentPane().add(selecionaHospedagem);
+		this.selecionaAnfitriao = new JComboBox<String>();
+		this.selecionaAnfitriao.setBounds(180, 46, 108, 22);
+		getContentPane().add(selecionaAnfitriao);
 
 		this.aviso = new JLabel("Preencha os campos a alterar(CPF NAO E ALTERAVEL)");
 		this.aviso.setHorizontalAlignment(SwingConstants.CENTER);
@@ -75,7 +80,7 @@ public class EditarAnfitriaoVisual extends JFrame implements ActionListener {
 		this.textoTelefone.setColumns(10);
 		getContentPane().add(textoTelefone);
 
-		this.avisoAlteracaoHospedagens = new JLabel("Hospedagens que terao seu endereco alterado");
+		this.avisoAlteracaoHospedagens = new JLabel("Hospedagens afetadas:");
 		this.avisoAlteracaoHospedagens.setBounds(10, 232, 363, 14);
 		getContentPane().add(avisoAlteracaoHospedagens);
 
@@ -111,8 +116,8 @@ public class EditarAnfitriaoVisual extends JFrame implements ActionListener {
 		return textoTelefone;
 	}
 
-	public JComboBox<String> getSelecionaHospedagem() {
-		return selecionaHospedagem;
+	public JComboBox<String> getSelecionaAnfitriao() {
+		return selecionaAnfitriao;
 	}
 
 	public JComboBox<String> getListaHospedagem() {
@@ -129,7 +134,7 @@ public class EditarAnfitriaoVisual extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		controle.executarBotao((JButton) e.getSource());
 
 	}
 

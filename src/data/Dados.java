@@ -22,7 +22,7 @@ public class Dados {
 
 	}
 
-	public void preCadastro() {
+	public static void adicionarDono() {
 		Dono dono1 = new Dono("Carlos", "Guara", "61992934962", "07642929196");
 		Dados.getDono().add(dono1);
 

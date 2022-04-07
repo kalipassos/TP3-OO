@@ -10,6 +10,12 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+/**
+ * Interface da visualizacao de uma hospedagem.
+ * 
+ * @author Admin
+ *
+ */
 public class VisualizaHospedagemVisual extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 8463455483969052713L;
 	private final JLabel mensagemInicial;

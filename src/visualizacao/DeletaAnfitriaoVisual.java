@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import controles.DeletaAnfitriaoControle;
+
 public class DeletaAnfitriaoVisual extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 5461923270645343339L;
 	private final JLabel mensagemInicial;
@@ -18,10 +20,13 @@ public class DeletaAnfitriaoVisual extends JFrame implements ActionListener {
 	private final JLabel naoEncontrado;
 	private final JButton botaoSim;
 	private final JButton botaoNao;
-	private final JComboBox<String> selecionaAnfitriao;
+	private JComboBox<String> selecionaAnfitriao;
+	private final DeletaAnfitriaoControle controle;
 
 	public DeletaAnfitriaoVisual() {
 		getContentPane().setLayout(null);
+
+		controle = new DeletaAnfitriaoControle(this);
 
 		this.mensagemInicial = new JLabel("Tela de delecao");
 		this.mensagemInicial.setHorizontalAlignment(SwingConstants.CENTER);
@@ -34,6 +39,7 @@ public class DeletaAnfitriaoVisual extends JFrame implements ActionListener {
 
 		this.selecionaAnfitriao = new JComboBox<String>();
 		this.selecionaAnfitriao.setBounds(221, 38, 96, 22);
+		this.selecionaAnfitriao.setModel(controle.getAnfitriao());
 		getContentPane().add(selecionaAnfitriao);
 
 		this.confirmacaoDelecao = new JLabel("Deseja mesmo deletar?");
@@ -74,6 +80,10 @@ public class DeletaAnfitriaoVisual extends JFrame implements ActionListener {
 
 	public JComboBox<String> getSelecionaAnfitriao() {
 		return selecionaAnfitriao;
+	}
+
+	public void setSelecionaAnfitriao(JComboBox<String> selecionaAnfitriao) {
+		this.selecionaAnfitriao = selecionaAnfitriao;
 	}
 
 	@Override

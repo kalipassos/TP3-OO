@@ -19,7 +19,7 @@ public class DeletaDonoVisual extends JFrame implements ActionListener {
 	private final JLabel avisoDelecao;
 	private final JButton botaoSim;
 	private final JButton botaoNao;
-	private final JComboBox<String> selecaoDono;
+	private JComboBox<String> selecaoDono;
 	private final DeletaDonoControle controle;
 
 	public DeletaDonoVisual() {
@@ -38,6 +38,7 @@ public class DeletaDonoVisual extends JFrame implements ActionListener {
 
 		this.selecaoDono = new JComboBox<String>();
 		this.selecaoDono.setBounds(218, 36, 92, 22);
+		this.selecaoDono.setModel(controle.getDono());
 		getContentPane().add(selecaoDono);
 
 		this.avisoDelecaoPet = new JLabel("AVISO!Os pets serao deletados.");
@@ -49,7 +50,7 @@ public class DeletaDonoVisual extends JFrame implements ActionListener {
 		getContentPane().add(avisoDelecao);
 
 		this.botaoSim = new JButton("Sim");
-		botaoSim.addActionListener(this);
+		this.botaoSim.addActionListener(this);
 		this.botaoSim.setBounds(21, 197, 89, 23);
 		getContentPane().add(botaoSim);
 
@@ -75,6 +76,10 @@ public class DeletaDonoVisual extends JFrame implements ActionListener {
 
 	public JComboBox<String> getSelecaoDono() {
 		return selecaoDono;
+	}
+
+	public void setSelecionaDono(JComboBox<String> selecionaDono) {
+		this.selecaoDono = selecionaDono;
 	}
 
 	@Override

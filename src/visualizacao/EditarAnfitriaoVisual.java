@@ -76,7 +76,7 @@ public class EditarAnfitriaoVisual extends JFrame implements ActionListener {
 		getContentPane().add(rotuloTelefone);
 
 		this.textoTelefone = new JTextField();
-		this.textoTelefone.setBounds(180, 154, 86, 20);
+		this.textoTelefone.setBounds(180, 190, 86, 20);
 		this.textoTelefone.setColumns(10);
 		getContentPane().add(textoTelefone);
 

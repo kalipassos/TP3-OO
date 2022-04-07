@@ -30,6 +30,11 @@ public class DeletaAnimalVisual extends JFrame implements ActionListener {
 
 		controller = new DeletaAnimalControle(this);
 
+		this.mensagemInicial = new JLabel("Tela de delecao");
+		this.mensagemInicial.setHorizontalAlignment(SwingConstants.CENTER);
+		this.mensagemInicial.setBounds(0, 0, 434, 14);
+		getContentPane().add(mensagemInicial);
+
 		this.dono = new JLabel("Dono ");
 		this.dono.setBounds(10, 35, 46, 14);
 		getContentPane().add(dono);
@@ -39,11 +44,6 @@ public class DeletaAnimalVisual extends JFrame implements ActionListener {
 		this.selecionaDono.addActionListener(this);
 		this.selecionaDono.setModel(controller.getDono());
 		getContentPane().add(selecionaDono);
-
-		this.mensagemInicial = new JLabel("Tela de delecao");
-		this.mensagemInicial.setHorizontalAlignment(SwingConstants.CENTER);
-		this.mensagemInicial.setBounds(0, 0, 434, 14);
-		getContentPane().add(mensagemInicial);
 
 		this.confirmacao = new JLabel("Animal que deseja deletar");
 		this.confirmacao.setBounds(10, 105, 163, 14);

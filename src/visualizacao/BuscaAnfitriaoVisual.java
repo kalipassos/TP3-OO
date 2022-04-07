@@ -50,63 +50,64 @@ public class BuscaAnfitriaoVisual extends JFrame implements ActionListener {
 
 		this.botaoBuscarAnfitriao = new JButton("Buscar");
 		this.botaoBuscarAnfitriao.setBounds(320, 32, 89, 23);
-		// this.botaoBuscarAnfitriao.addActionListener(this);
+		this.botaoBuscarAnfitriao.addActionListener(this);
 		getContentPane().add(botaoBuscarAnfitriao);
 
 		this.rotuloNaoEncontrado = new JLabel("Nao encontrado, deseja cadastrar?");
 		this.rotuloNaoEncontrado.setBounds(10, 84, 197, 14);
-		// this.rotuloNaoEncontrado.setVisible(false);
+		this.rotuloNaoEncontrado.setVisible(false);
 		getContentPane().add(rotuloNaoEncontrado);
 
 		this.botaoSim = new JButton("Sim");
 		this.botaoSim.setBounds(45, 123, 89, 23);
 		this.botaoSim.addActionListener(this);
-		// this.botaoSim.setVisible(false);
+		this.botaoSim.setVisible(false);
 		getContentPane().add(botaoSim);
 
 		this.botaoNao = new JButton("Nao");
 		this.botaoNao.setBounds(227, 123, 89, 23);
 		this.botaoNao.addActionListener(this);
-		// this.botaoNao.setVisible(false);
+		this.botaoNao.setVisible(false);
 		getContentPane().add(botaoNao);
 
 		this.rotuloEncontrado = new JLabel("Encontrado ");
 		this.rotuloEncontrado.setBounds(10, 178, 101, 14);
-		// this.rotuloEncontrado.setVisible(false);
+		this.rotuloEncontrado.setVisible(false);
 		getContentPane().add(rotuloEncontrado);
 
 		this.textoEncontrado = new JTextField();
 		this.textoEncontrado.setBounds(227, 175, 86, 20);
 		this.textoEncontrado.setColumns(10);
+		this.textoEncontrado.setVisible(false);
 		getContentPane().add(textoEncontrado);
 
 		this.rotuloProximaAcao = new JLabel("O que deseja realizar?");
 		this.rotuloProximaAcao.setBounds(10, 227, 197, 14);
-		// this.rotuloProximaAcao.setVisible(false);
+		this.rotuloProximaAcao.setVisible(false);
 		getContentPane().add(rotuloProximaAcao);
 
 		this.botaoVisualizarAnfitriao = new JButton("Visualizar");
 		this.botaoVisualizarAnfitriao.setBounds(45, 270, 89, 23);
 		this.botaoVisualizarAnfitriao.addActionListener(this);
-		// this.rotuloNaoEncontrado.setVisible(false);
+		this.botaoVisualizarAnfitriao.setVisible(false);
 		getContentPane().add(botaoVisualizarAnfitriao);
 
 		this.botaoEditarAnfitriao = new JButton("Editar");
 		this.botaoEditarAnfitriao.setBounds(227, 270, 89, 23);
 		this.botaoEditarAnfitriao.addActionListener(this);
-		// this.rotuloNaoEncontrado.setVisible(false);
+		this.botaoEditarAnfitriao.setVisible(false);
 		getContentPane().add(botaoEditarAnfitriao);
 
 		this.botaoDeletarAnfitriao = new JButton("Deletar");
 		this.botaoDeletarAnfitriao.setBounds(45, 330, 89, 23);
 		this.botaoDeletarAnfitriao.addActionListener(this);
-		// this.rotuloNaoEncontrado.setVisible(false);
+		this.botaoDeletarAnfitriao.setVisible(false);
 		getContentPane().add(botaoDeletarAnfitriao);
 
 		this.botaoVoltar = new JButton("Voltar");
 		this.botaoVoltar.setBounds(227, 330, 89, 23);
 		this.botaoVoltar.addActionListener(this);
-		// this.rotuloNaoEncontrado.setVisible(false);
+		this.botaoVoltar.setVisible(false);
 		getContentPane().add(botaoVoltar);
 
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -165,7 +166,7 @@ public class BuscaAnfitriaoVisual extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		controle.buscador((JButton) e.getSource());
+		controle.executarBotao(e.getSource());
 
 	}
 

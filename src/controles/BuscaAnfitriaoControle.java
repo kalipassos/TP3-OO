@@ -32,20 +32,31 @@ public class BuscaAnfitriaoControle {
 
 	public void executarBotao(Object source) {
 		if (source == visualizacao.getBotaoBuscarAnfitriao()) {
+			Anfitriao achado = buscador(visualizacao.getBotaoBuscarAnfitriao());
+			if (achado != null) {
+				setField(visualizacao.getTextoEncontrado(), achado.getNome());
+				visualizacao.getRotuloEncontrado().setVisible(true);
+				visualizacao.getRotuloProximaAcao().setVisible(true);
+				visualizacao.getBotaoVisualizarAnfitriao().setVisible(true);
+				visualizacao.getBotaoEditarAnfitriao().setVisible(true);
+				visualizacao.getBotaoDeletarAnfitriao().setVisible(true);
+				visualizacao.getBotaoVoltar().setVisible(true);
 
-			if (buscador(visualizacao.getBotaoBuscarAnfitriao()) != null) {
-				setField(visualizacao.getTextoEncontrado());
-				// visualizacao.getRotuloEncontrado().setVisible(true);
-				// visualizacao.getRotuloProximaAcao().setVisible(true);
-				// visualizacao.getBotaoVisualizarAnfitriao().setVisible(true);
-				// visualizacao.getBotaoEditarAnfitriao().setVisible(true);
-				// visualizacao.getBotaoDeletarAnfitriao().setVisible(true);
-				// visualizacao.getBotaoVoltar().setVisible(true);
+				visualizacao.getRotuloNaoEncontrado().setVisible(false);
+				visualizacao.getBotaoSim().setVisible(false);
+				visualizacao.getBotaoNao().setVisible(false);
 
 			} else {
 				visualizacao.getRotuloNaoEncontrado().setVisible(true);
 				visualizacao.getBotaoSim().setVisible(true);
 				visualizacao.getBotaoNao().setVisible(true);
+
+				visualizacao.getRotuloEncontrado().setVisible(false);
+				visualizacao.getRotuloProximaAcao().setVisible(false);
+				visualizacao.getBotaoVisualizarAnfitriao().setVisible(false);
+				visualizacao.getBotaoEditarAnfitriao().setVisible(false);
+				visualizacao.getBotaoDeletarAnfitriao().setVisible(false);
+				visualizacao.getBotaoVoltar().setVisible(false);
 			}
 		} else if (source == visualizacao.getBotaoSim()) {
 			new CadastrarAnfitriaoVisual();
@@ -72,7 +83,7 @@ public class BuscaAnfitriaoControle {
 		return Dados.getAnfitriao().get(index);
 	}
 
-	public static void setField(JTextField field) {
+	public static void setField(JTextField field, String parametro) {
 		field.setText(parametro);
 
 	}

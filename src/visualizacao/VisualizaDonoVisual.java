@@ -29,7 +29,7 @@ public class VisualizaDonoVisual extends JFrame implements ActionListener {
 	private final JButton botaoDeletar;
 	private final JButton botaoEditar;
 	private final JButton botaoVoltar;
-	private final JComboBox<String> escolhaDono;
+	private JComboBox<String> escolhaDono;
 	private final JComboBox<String> verPet;
 	private final VisualizaDonoControle controle;
 
@@ -49,6 +49,8 @@ public class VisualizaDonoVisual extends JFrame implements ActionListener {
 
 		this.escolhaDono = new JComboBox<String>();
 		this.escolhaDono.setBounds(247, 25, 83, 22);
+		this.escolhaDono.setModel(controle.getDono());
+		this.escolhaDono.addActionListener(this);
 		getContentPane().add(escolhaDono);
 
 		this.rotuloNome = new JLabel("Nome");
@@ -163,7 +165,7 @@ public class VisualizaDonoVisual extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		controle.executaVisualD((JButton) e.getSource());
+		controle.executarBotao(e.getSource());
 
 	}
 }

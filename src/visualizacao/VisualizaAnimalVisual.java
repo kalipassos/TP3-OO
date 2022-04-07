@@ -11,6 +11,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import controles.VisualizaAnimalControle;
+
 public class VisualizaAnimalVisual extends JFrame implements ActionListener {
 	private static final long serialVersionUID = -7435614229544076755L;
 	private final JLabel mensagemInicial;
@@ -35,9 +37,12 @@ public class VisualizaAnimalVisual extends JFrame implements ActionListener {
 	private final JButton botaoVoltar;
 	private JComboBox<String> selecionaDono;
 	private final JComboBox<String> selecionaPet;
+	private final VisualizaAnimalControle controle;
 
 	public VisualizaAnimalVisual() {
 		getContentPane().setLayout(null);
+
+		controle = new VisualizaAnimalControle(this);
 
 		this.mensagemInicial = new JLabel("Ferramenta de visualizacao");
 		this.mensagemInicial.setHorizontalAlignment(SwingConstants.CENTER);
@@ -50,6 +55,8 @@ public class VisualizaAnimalVisual extends JFrame implements ActionListener {
 
 		this.selecionaDono = new JComboBox<String>();
 		this.selecionaDono.setBounds(194, 25, 87, 22);
+		this.selecionaDono.setModel(controle.getDono());
+		this.selecionaDono.addActionListener(this);
 		getContentPane().add(selecionaDono);
 
 		this.rotuloPet = new JLabel("Escolha o pet");
@@ -187,13 +194,17 @@ public class VisualizaAnimalVisual extends JFrame implements ActionListener {
 		return selecionaDono;
 	}
 
+	public void setSelecionaDono(JComboBox<String> selecionaDono) {
+		this.selecionaDono = selecionaDono;
+	}
+
 	public JComboBox<String> getSelecionaPet() {
 		return selecionaPet;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		controle.executarBotao(e.getSource());
 
 	}
 }

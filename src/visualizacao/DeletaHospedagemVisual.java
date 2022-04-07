@@ -14,13 +14,15 @@ import controles.DeletaHospedagemControle;
 public class DeletaHospedagemVisual extends JFrame implements ActionListener {
 	private static final long serialVersionUID = -5479233636111364606L;
 	private final JLabel mensagemInicial;
+	private final JLabel mensagemEscolhaAnfitriao;
 	private final JLabel mensagemEscolhaHospedagem;
 	private final JLabel mensagemConfirmacao;
 	private final JLabel mensagemConfirmacaoFinal;
 	private final JLabel mensagemRetorno;
 	private final JButton botaoSim;
 	private final JButton botaoNao;
-	private JComboBox<String> selecionaHospedagem;
+	private JComboBox<String> selecionaAnfitriao;
+	private final JComboBox<String> selecionaHospedagem;
 	private final DeletaHospedagemControle controle;
 
 	public DeletaHospedagemVisual() {
@@ -33,41 +35,57 @@ public class DeletaHospedagemVisual extends JFrame implements ActionListener {
 		this.mensagemInicial.setBounds(0, 0, 434, 14);
 		getContentPane().add(mensagemInicial);
 
-		this.mensagemEscolhaHospedagem = new JLabel("Hospedagem a deletar");
-		this.mensagemEscolhaHospedagem.setBounds(10, 25, 151, 14);
+		this.mensagemEscolhaAnfitriao = new JLabel("Escolha o anfitriao");
+		this.mensagemEscolhaAnfitriao.setBounds(10, 37, 137, 14);
+		getContentPane().add(mensagemEscolhaAnfitriao);
+
+		this.selecionaAnfitriao = new JComboBox<String>();
+		this.selecionaAnfitriao.setBounds(234, 33, 89, 22);
+		this.selecionaAnfitriao.setModel(controle.getAnfitriao());
+		getContentPane().add(selecionaAnfitriao);
+
+		this.mensagemEscolhaHospedagem = new JLabel("Hospedagens ");
+		this.mensagemEscolhaHospedagem.setBounds(10, 80, 151, 14);
 		getContentPane().add(mensagemEscolhaHospedagem);
 
 		this.selecionaHospedagem = new JComboBox<String>();
-		this.selecionaHospedagem.setBounds(234, 25, 89, 22);
-		this.selecionaHospedagem.setModel(controle.getHospedagem());
+		this.selecionaHospedagem.setBounds(234, 76, 89, 22);
 		getContentPane().add(selecionaHospedagem);
 
 		this.mensagemConfirmacao = new JLabel("Deseja mesmo deletar?");
-		this.mensagemConfirmacao.setBounds(10, 76, 151, 14);
+		this.mensagemConfirmacao.setBounds(10, 127, 151, 14);
 		getContentPane().add(mensagemConfirmacao);
 
 		this.botaoSim = new JButton("Sim");
-		this.botaoSim.setBounds(72, 111, 89, 23);
+		this.botaoSim.setBounds(72, 170, 89, 23);
 		this.botaoSim.addActionListener(this);
 		getContentPane().add(botaoSim);
 
 		this.botaoNao = new JButton("Nao");
-		this.botaoNao.setBounds(234, 111, 89, 23);
+		this.botaoNao.setBounds(234, 170, 89, 23);
 		this.botaoNao.addActionListener(this);
 		getContentPane().add(botaoNao);
 
 		this.mensagemConfirmacaoFinal = new JLabel("Delecao realizada com sucesso!Voltando ao menu de hospedagens.");
-		this.mensagemConfirmacaoFinal.setBounds(10, 186, 336, 14);
+		this.mensagemConfirmacaoFinal.setBounds(10, 248, 336, 14);
 		getContentPane().add(mensagemConfirmacaoFinal);
 
 		this.mensagemRetorno = new JLabel("Voltando ao menu de hospedagem.");
-		this.mensagemRetorno.setBounds(10, 220, 313, 14);
+		this.mensagemRetorno.setBounds(10, 287, 313, 14);
 		getContentPane().add(mensagemRetorno);
 
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setSize(450, 450);
 		this.setResizable(false);
 
+	}
+
+	public JComboBox<String> getSelecionaAnfitriao() {
+		return selecionaAnfitriao;
+	}
+
+	public void setSelecionaAnfitriao(JComboBox<String> selecionaAnfitriao) {
+		this.selecionaAnfitriao = selecionaAnfitriao;
 	}
 
 	public JButton getBotaoSim() {
@@ -82,14 +100,9 @@ public class DeletaHospedagemVisual extends JFrame implements ActionListener {
 		return selecionaHospedagem;
 	}
 
-	public void setSelecionaHospedagem(JComboBox<String> selecionaHospedagem) {
-		this.selecionaHospedagem = selecionaHospedagem;
-	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 
 	}
-
 }

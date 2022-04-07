@@ -23,7 +23,6 @@ public class CadastrarAnimalVisual extends JFrame implements ActionListener {
 	private final JLabel nomeAnimal;
 	private final JLabel porteAnimal;
 	private final JLabel sexoAnimal;
-	private final JLabel biografiaAnimal;
 	private final JLabel idadeAnimal;
 	private final JLabel especieAnimal;
 	private final JLabel cuidadosAnimal;
@@ -31,7 +30,6 @@ public class CadastrarAnimalVisual extends JFrame implements ActionListener {
 	private final JTextField cadastrarPorte;
 	private final JTextField cadastrarIdade;
 	private final JTextField cadastrarEspecie;
-	private final JTextArea textoBiografia;
 	private final JTextArea textoCuidados;
 	private final JButton botaoCadastrar;
 	private final JButton botaoCancelar;
@@ -74,10 +72,6 @@ public class CadastrarAnimalVisual extends JFrame implements ActionListener {
 		this.sexoAnimal.setBounds(26, 153, 46, 14);
 		getContentPane().add(sexoAnimal);
 
-		this.biografiaAnimal = new JLabel("Biografia");
-		this.biografiaAnimal.setBounds(26, 219, 46, 14);
-		getContentPane().add(biografiaAnimal);
-
 		this.cadastrarNome = new JTextField();
 		this.cadastrarNome.setBounds(117, 78, 86, 20);
 		this.cadastrarNome.setColumns(10);
@@ -87,10 +81,6 @@ public class CadastrarAnimalVisual extends JFrame implements ActionListener {
 		this.cadastrarPorte.setBounds(117, 114, 86, 20);
 		this.cadastrarPorte.setColumns(10);
 		getContentPane().add(cadastrarPorte);
-
-		this.textoBiografia = new JTextArea();
-		this.textoBiografia.setBounds(26, 252, 362, 84);
-		getContentPane().add(textoBiografia);
 
 		this.idadeAnimal = new JLabel("Idade");
 		this.idadeAnimal.setBounds(244, 81, 46, 14);
@@ -164,10 +154,6 @@ public class CadastrarAnimalVisual extends JFrame implements ActionListener {
 		return sexoAnimal;
 	}
 
-	public JLabel getBiografiaAnimal() {
-		return biografiaAnimal;
-	}
-
 	public JLabel getIdadeAnimal() {
 		return idadeAnimal;
 	}
@@ -194,10 +180,6 @@ public class CadastrarAnimalVisual extends JFrame implements ActionListener {
 
 	public JTextField getCadastrarEspecie() {
 		return cadastrarEspecie;
-	}
-
-	public JTextArea getTextoBiografia() {
-		return textoBiografia;
 	}
 
 	public JTextArea getTextoCuidados() {

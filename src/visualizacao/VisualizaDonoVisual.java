@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import controles.VisualizaDonoControle;
+
 public class VisualizaDonoVisual extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 4015662900789725098L;
 	private final JLabel mensagemInicial;
@@ -29,9 +31,12 @@ public class VisualizaDonoVisual extends JFrame implements ActionListener {
 	private final JButton botaoVoltar;
 	private final JComboBox<String> escolhaDono;
 	private final JComboBox<String> verPet;
+	private final VisualizaDonoControle controle;
 
 	public VisualizaDonoVisual() {
 		getContentPane().setLayout(null);
+
+		controle = new VisualizaDonoControle(this);
 
 		this.mensagemInicial = new JLabel("Ferramenta de visualizacao");
 		this.mensagemInicial.setHorizontalAlignment(SwingConstants.CENTER);
@@ -92,18 +97,22 @@ public class VisualizaDonoVisual extends JFrame implements ActionListener {
 
 		this.botaoReiniciar = new JButton("Reiniciar");
 		this.botaoReiniciar.setBounds(10, 265, 89, 23);
+		this.botaoReiniciar.addActionListener(this);
 		getContentPane().add(botaoReiniciar);
 
 		this.botaoDeletar = new JButton("Deletar");
 		this.botaoDeletar.setBounds(315, 265, 89, 23);
+		this.botaoDeletar.addActionListener(this);
 		getContentPane().add(botaoDeletar);
 
 		this.botaoEditar = new JButton("Editar");
 		this.botaoEditar.setBounds(159, 265, 89, 23);
+		this.botaoEditar.addActionListener(this);
 		getContentPane().add(botaoEditar);
 
 		this.botaoVoltar = new JButton("Voltar");
 		this.botaoVoltar.setBounds(159, 339, 89, 23);
+		this.botaoVoltar.addActionListener(this);
 		getContentPane().add(botaoVoltar);
 
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -154,7 +163,7 @@ public class VisualizaDonoVisual extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		controle.executaVisualD((JButton) e.getSource());
 
 	}
 }

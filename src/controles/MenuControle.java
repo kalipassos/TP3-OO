@@ -28,6 +28,7 @@ public class MenuControle {
 			view.dispose();
 		} else if (botaoSelecionado.equals(view.getBotaoOpcaoHospedagem())) {
 			new HospedagemVisual().setVisible(true);
+			view.dispose();
 		} else if (botaoSelecionado.equals(view.getBotaoSair())) {
 			view.dispose();
 		}

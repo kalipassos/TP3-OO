@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import controles.BuscaAnfitriaoControle;
+
 public class BuscaAnfitriaoVisual extends JFrame implements ActionListener {
 	private static final long serialVersionUID = -4366955214075461314L;
 	private final JLabel mensagemInicial;
@@ -23,11 +25,14 @@ public class BuscaAnfitriaoVisual extends JFrame implements ActionListener {
 	private final JButton botaoEditarAnfitriao;
 	private final JButton botaoDeletarAnfitriao;
 	private final JButton botaoVoltar;
-	private final JTextField textoHospedagem;
+	private final JTextField TextoNomeAnfitriao;
 	private final JTextField textoEncontrado;
+	private final BuscaAnfitriaoControle controle;
 
 	public BuscaAnfitriaoVisual() {
 		getContentPane().setLayout(null);
+
+		controle = new BuscaAnfitriaoControle(this);
 
 		this.mensagemInicial = new JLabel("Ferramenta de Busca");
 		this.mensagemInicial.setHorizontalAlignment(SwingConstants.CENTER);
@@ -38,10 +43,10 @@ public class BuscaAnfitriaoVisual extends JFrame implements ActionListener {
 		this.rotuloBuscaAnfitriao.setBounds(10, 36, 154, 14);
 		getContentPane().add(rotuloBuscaAnfitriao);
 
-		this.textoHospedagem = new JTextField();
-		this.textoHospedagem.setBounds(195, 33, 86, 20);
-		this.textoHospedagem.setColumns(10);
-		getContentPane().add(textoHospedagem);
+		this.TextoNomeAnfitriao = new JTextField();
+		this.TextoNomeAnfitriao.setBounds(195, 33, 86, 20);
+		this.TextoNomeAnfitriao.setColumns(10);
+		getContentPane().add(TextoNomeAnfitriao);
 
 		this.botaoBuscarAnfitriao = new JButton("Buscar");
 		this.botaoBuscarAnfitriao.setBounds(320, 32, 89, 23);
@@ -129,8 +134,8 @@ public class BuscaAnfitriaoVisual extends JFrame implements ActionListener {
 		return botaoVoltar;
 	}
 
-	public JTextField getTextoHospedagem() {
-		return textoHospedagem;
+	public JTextField getTextoNomeAnfitriaogetTextoNomeAnfitriao() {
+		return TextoNomeAnfitriao;
 	}
 
 	public JTextField getTextoEncontrado() {
@@ -139,7 +144,7 @@ public class BuscaAnfitriaoVisual extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		controle.buscador((JButton) e.getSource());
 
 	}
 

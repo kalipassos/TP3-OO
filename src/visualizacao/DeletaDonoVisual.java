@@ -9,20 +9,23 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import controles.DeletaDonoControle;
+
 public class DeletaDonoVisual extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 6869271595133138466L;
 	private final JLabel mensagemInicial;
 	private final JLabel mensagemEscolhaDono;
 	private final JLabel avisoDelecaoPet;
 	private final JLabel avisoDelecao;
-	private final JLabel avisoDelecaoFinal;
-	private final JLabel avisoRetornoNao;
 	private final JButton botaoSim;
 	private final JButton botaoNao;
 	private final JComboBox<String> selecaoDono;
+	private final DeletaDonoControle controle;
 
 	public DeletaDonoVisual() {
 		getContentPane().setLayout(null);
+
+		controle = new DeletaDonoControle(this);
 
 		this.mensagemInicial = new JLabel("Ferramenta de Delecao");
 		this.mensagemInicial.setHorizontalAlignment(SwingConstants.CENTER);
@@ -46,27 +49,20 @@ public class DeletaDonoVisual extends JFrame implements ActionListener {
 		getContentPane().add(avisoDelecao);
 
 		this.botaoSim = new JButton("Sim");
+		botaoSim.addActionListener(this);
 		this.botaoSim.setBounds(21, 197, 89, 23);
-		this.botaoSim.addActionListener(this);
 		getContentPane().add(botaoSim);
 
-		this.botaoNao = new JButton("Nao");
+		this.botaoNao = new JButton("Voltar");
 		this.botaoNao.setBounds(218, 197, 89, 23);
 		this.botaoNao.addActionListener(this);
 		getContentPane().add(botaoNao);
-
-		this.avisoDelecaoFinal = new JLabel("Delecao executada com sucesso!Voltando ao menu de dono.");
-		this.avisoDelecaoFinal.setBounds(21, 245, 308, 14);
-		getContentPane().add(avisoDelecaoFinal);
-
-		this.avisoRetornoNao = new JLabel("Voltando ao menu de dono.");
-		this.avisoRetornoNao.setBounds(21, 276, 289, 14);
-		getContentPane().add(avisoRetornoNao);
 
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setSize(450, 450);
 		this.setResizable(false);
 
+		this.setVisible(true);
 	}
 
 	public JButton getBotaoSim() {
@@ -83,8 +79,12 @@ public class DeletaDonoVisual extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		controle.executarBotao(e.getSource());
 
+	}
+
+	public JComboBox<String> getSelecionaAnimal() {
+		return null;
 	}
 
 }

@@ -2,8 +2,12 @@ package controles;
 
 import javax.swing.JButton;
 
+import visualizacao.BuscaDonoVisual;
 import visualizacao.CadastrarDonoVisual;
+import visualizacao.DeletaDonoVisual;
 import visualizacao.DonoVisual;
+import visualizacao.EditarDonoVisual;
+import visualizacao.VisualizaDonoVisual;
 
 public class DonoControle { // classe destinada ao controle dos CRUDs do Dono
   private final DonoVisual visualizacao;
@@ -17,13 +21,16 @@ public class DonoControle { // classe destinada ao controle dos CRUDs do Dono
       new CadastrarDonoVisual().setVisible(true);
       visualizacao.dispose();
     } else if (botaoSelecionado.equals(visualizacao.getBotaoBuscarDono())) {
-      new CadastrarDonoVisual().setVisible(true);
+      new BuscaDonoVisual().setVisible(true);
       visualizacao.dispose();
     } else if (botaoSelecionado.equals(visualizacao.getBotaoVisualizarDono())) {
-      new CadastrarDonoVisual().setVisible(true);
+      new VisualizaDonoVisual().setVisible(true);
       visualizacao.dispose();
     } else if (botaoSelecionado.equals(visualizacao.getBotaoEditarDono())) {
-      new CadastrarDonoVisual().setVisible(true);
+      new EditarDonoVisual().setVisible(true);
+    } else if (botaoSelecionado.equals(visualizacao.getBotaoDeletarDono())) {
+      new DeletaDonoVisual().setVisible(true);
+      visualizacao.dispose();
     } else if (botaoSelecionado.equals(visualizacao.getBotaoVoltar())) {
       visualizacao.dispose();
     }

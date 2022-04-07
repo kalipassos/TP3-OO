@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import controles.DeletaAnimalControle;
+
 public class DeletaAnimalVisual extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 3327073071322275876L;
 	private final JLabel mensagemInicial;
@@ -21,9 +23,12 @@ public class DeletaAnimalVisual extends JFrame implements ActionListener {
 	private final JButton botaoNao;
 	private JComboBox<String> selecionaDono;
 	private final JComboBox<String> selecionaAnimal;
+	private final DeletaAnimalControle controller;
 
-	private DeletaAnimalVisual() {
+	public DeletaAnimalVisual() {
 		getContentPane().setLayout(null);
+
+		controller = new DeletaAnimalControle(this);
 
 		this.dono = new JLabel("Dono ");
 		this.dono.setBounds(10, 35, 46, 14);
@@ -31,6 +36,8 @@ public class DeletaAnimalVisual extends JFrame implements ActionListener {
 
 		this.selecionaDono = new JComboBox<String>();
 		this.selecionaDono.setBounds(221, 31, 96, 22);
+		this.selecionaDono.addActionListener(this);
+		this.selecionaDono.setModel(controller.getDono());
 		getContentPane().add(selecionaDono);
 
 		this.mensagemInicial = new JLabel("Tela de delecao");
@@ -55,7 +62,7 @@ public class DeletaAnimalVisual extends JFrame implements ActionListener {
 		this.botaoSim.addActionListener(this);
 		getContentPane().add(botaoSim);
 
-		this.botaoNao = new JButton("Nao");
+		this.botaoNao = new JButton("Voltar");
 		this.botaoNao.setBounds(221, 205, 89, 23);
 		this.botaoNao.addActionListener(this);
 		getContentPane().add(botaoNao);
@@ -95,7 +102,7 @@ public class DeletaAnimalVisual extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		controller.executarBotao(e.getSource());
 
 	}
 }

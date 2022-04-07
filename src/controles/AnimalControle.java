@@ -24,6 +24,8 @@ public class AnimalControle {
             visualizacao.dispose();
         } else if (botaoSelecionado.equals(visualizacao.getBotaoEditarPet())) {
             new EditarAnimalVisual().setVisible(true);
+        } else if (botaoSelecionado.equals(visualizacao.getBotaoDeletarPet())) {
+            new DeletaAnimalVisual().setVisible(true);
         } else if (botaoSelecionado.equals(visualizacao.getBotaoVoltar())) {
             visualizacao.dispose();
         }

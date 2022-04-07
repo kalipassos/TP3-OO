@@ -5,6 +5,8 @@ import javax.swing.JButton;
 import data.Dados;
 import modelos.Dono;
 import visualizacao.CadastrarDonoVisual;
+import visualizacao.DonoVisual;
+import visualizacao.MenuVisual;
 
 public class CadastrarDonoControle {
 
@@ -15,11 +17,12 @@ public class CadastrarDonoControle {
 
     }
 
-    public void executaBotao(JButton botaoSelecionado) {
+    public void executaCadastroD(JButton botaoSelecionado) {
         if (botaoSelecionado.equals(visualizacao.getBotaoCadastrar())) {
-            new CadastrarDonoVisual().setVisible(true);
+            new DonoVisual().setVisible(true);
             visualizacao.dispose();
         } else if (botaoSelecionado.equals(visualizacao.getBotaoCancelar())) {
+            new DonoVisual().setVisible(true);
             visualizacao.dispose();
         }
     }
@@ -30,12 +33,14 @@ public class CadastrarDonoControle {
 
             if (ParaCadastrar != null) {
                 Dados.getDono().add(ParaCadastrar);
+                visualizacao.dispose();
             }
         } else {
             visualizacao.getTextoNome().setText(null);
             visualizacao.getTextoEndereco().setText(null);
             visualizacao.getTextoTelefone().setText(null);
             visualizacao.getTextoCPF().setText(null);
+            visualizacao.dispose();
 
         }
     }

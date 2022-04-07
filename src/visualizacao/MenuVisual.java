@@ -64,10 +64,6 @@ public class MenuVisual extends JFrame implements ActionListener {
 
 	}
 
-	public static void main(String[] args) {
-		new MenuVisual().setVisible(true);
-	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		controle.executarBotao((JButton) e.getSource());

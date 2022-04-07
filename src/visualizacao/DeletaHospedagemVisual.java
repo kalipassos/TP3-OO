@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import controles.DeletaHospedagemControle;
+
 public class DeletaHospedagemVisual extends JFrame implements ActionListener {
 	private static final long serialVersionUID = -5479233636111364606L;
 	private final JLabel mensagemInicial;
@@ -18,10 +20,13 @@ public class DeletaHospedagemVisual extends JFrame implements ActionListener {
 	private final JLabel mensagemRetorno;
 	private final JButton botaoSim;
 	private final JButton botaoNao;
-	private final JComboBox<String> selecionaHospedagem;
+	private JComboBox<String> selecionaHospedagem;
+	private final DeletaHospedagemControle controle;
 
 	public DeletaHospedagemVisual() {
 		getContentPane().setLayout(null);
+
+		controle = new DeletaHospedagemControle(this);
 
 		this.mensagemInicial = new JLabel("Ferramenta de Delecao");
 		this.mensagemInicial.setHorizontalAlignment(SwingConstants.CENTER);
@@ -34,6 +39,7 @@ public class DeletaHospedagemVisual extends JFrame implements ActionListener {
 
 		this.selecionaHospedagem = new JComboBox<String>();
 		this.selecionaHospedagem.setBounds(234, 25, 89, 22);
+		this.selecionaHospedagem.setModel(controle.getHospedagem());
 		getContentPane().add(selecionaHospedagem);
 
 		this.mensagemConfirmacao = new JLabel("Deseja mesmo deletar?");
@@ -47,7 +53,7 @@ public class DeletaHospedagemVisual extends JFrame implements ActionListener {
 
 		this.botaoNao = new JButton("Nao");
 		this.botaoNao.setBounds(234, 111, 89, 23);
-		this.botaoSim.addActionListener(this);
+		this.botaoNao.addActionListener(this);
 		getContentPane().add(botaoNao);
 
 		this.mensagemConfirmacaoFinal = new JLabel("Delecao realizada com sucesso!Voltando ao menu de hospedagens.");
@@ -74,6 +80,10 @@ public class DeletaHospedagemVisual extends JFrame implements ActionListener {
 
 	public JComboBox<String> getSelecionaHospedagem() {
 		return selecionaHospedagem;
+	}
+
+	public void setSelecionaHospedagem(JComboBox<String> selecionaHospedagem) {
+		this.selecionaHospedagem = selecionaHospedagem;
 	}
 
 	@Override

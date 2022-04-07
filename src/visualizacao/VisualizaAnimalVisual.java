@@ -29,12 +29,11 @@ public class VisualizaAnimalVisual extends JFrame implements ActionListener {
 	private final JTextField textoIdade;
 	private final JTextField textoEspecie;
 	private final JTextArea textoCuidados;
-	private final JTextArea textoBiografia;
 	private final JButton botaoReiniciar;
 	private final JButton botaoEditar;
 	private final JButton botaoDeletar;
 	private final JButton botaoVoltar;
-	private final JComboBox<String> selecionaDono;
+	private JComboBox<String> selecionaDono;
 	private final JComboBox<String> selecionaPet;
 
 	public VisualizaAnimalVisual() {
@@ -118,10 +117,6 @@ public class VisualizaAnimalVisual extends JFrame implements ActionListener {
 		this.textoCuidados.setBounds(308, 193, 86, 57);
 		getContentPane().add(textoCuidados);
 
-		this.textoBiografia = new JTextArea();
-		this.textoBiografia.setBounds(20, 283, 374, 72);
-		getContentPane().add(textoBiografia);
-
 		this.botaoReiniciar = new JButton("Reiniciar");
 		this.botaoReiniciar.setBounds(10, 377, 89, 23);
 		this.botaoReiniciar.addActionListener(this);
@@ -170,10 +165,6 @@ public class VisualizaAnimalVisual extends JFrame implements ActionListener {
 
 	public JTextArea getTextoCuidados() {
 		return textoCuidados;
-	}
-
-	public JTextArea getTextoBiografia() {
-		return textoBiografia;
 	}
 
 	public JButton getBotaoReiniciar() {

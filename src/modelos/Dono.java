@@ -3,8 +3,6 @@ package modelos;
 import java.awt.Component;
 import java.util.ArrayList;
 
-import util.Scan;
-
 public class Dono extends Pessoa {
 
 	private final ArrayList<Animal> animais;
@@ -21,25 +19,18 @@ public class Dono extends Pessoa {
 
 	}
 
-	public Animal buscarAnimal(String nome) {
-		nome = Scan.nextLine();
-		for (Animal animal : animais) {
-			if (animal.getNome().equals(nome)) {
-				System.out.println("Animal encontrado");
-				return animal;
-
-			}
-		}
-		return null;
-	}
-
-	public void removerAnimal(Animal animal) {
-		if (this.animais.contains(animal)) {
-			this.animais.remove(animal);
-		}
-
-	}
-
+	/*
+	 * public Animal buscarAnimal(String nome) { nome = Scan.nextLine(); for (Animal
+	 * animal : animais) { if (animal.getNome().equals(nome)) {
+	 * System.out.println("Animal encontrado"); return animal;
+	 * 
+	 * } } return null; }
+	 * 
+	 * public void removerAnimal(Animal animal) { if (this.animais.contains(animal))
+	 * { this.animais.remove(animal); }
+	 * 
+	 * }
+	 */
 	public ArrayList<Animal> getAnimais() {
 		return animais;
 	}

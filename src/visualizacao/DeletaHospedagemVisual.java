@@ -102,7 +102,7 @@ public class DeletaHospedagemVisual extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		controle.executarBotao(e.getSource());
 
 	}
 }

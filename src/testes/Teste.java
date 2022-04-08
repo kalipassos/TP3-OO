@@ -2,8 +2,7 @@ package testes;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
-
+import controles.EditarAnfitriaoControle;
 import controles.EditarDonoControle;
 import data.Dados;
 
@@ -16,4 +15,17 @@ class Teste {
 
     }
 
-}
+    @Test
+    void testgetAnfitriaoObj() {
+        Dados.adicionarDono();
+        assertEquals(Dados.getAnfitriao().get(0), EditarAnfitriaoControle.getAnfitriaoObj(0));
+   
+        }
+
+
+    @Test
+    void 
+       
+        
+
+    }

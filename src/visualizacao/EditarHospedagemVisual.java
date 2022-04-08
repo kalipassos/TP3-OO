@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class EditarHospedagemVisual extends JFrame implements ActionListener {
-	private static final long serialVersionUID = 7811394565241448588L;
+
 	private final JLabel mensagemInicial;
 	private final JLabel rotuloHospedagem;
 	private final JLabel mensagemAviso;

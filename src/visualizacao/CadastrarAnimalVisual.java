@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -37,7 +36,6 @@ public class CadastrarAnimalVisual extends JFrame implements ActionListener {
 	private final JRadioButton botaoFeminino;
 	private final ButtonGroup grupoBotaoRadio;
 	private final JComboBox<String> selecionaDono;
-	private DefaultComboBoxModel<String> lista = new DefaultComboBoxModel<>();
 	private final CadastrarAnimalControle controle;
 
 	public CadastrarAnimalVisual() {
@@ -53,7 +51,6 @@ public class CadastrarAnimalVisual extends JFrame implements ActionListener {
 
 		this.selecionaDono = new JComboBox<String>();
 		this.selecionaDono.setBounds(244, 37, 136, 22);
-		this.selecionaDono.setModel(lista);
 		getContentPane().add(selecionaDono);
 
 		this.donoAnimal = new JLabel("Selecione o dono");
@@ -213,6 +210,5 @@ public class CadastrarAnimalVisual extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		controle.executaBotao((JButton) e.getSource());
-
 	}
 }

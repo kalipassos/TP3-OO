@@ -9,8 +9,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+/**
+ * Interface da visualizacao do Pagamento da Hospedagem.
+ * 
+ * @author Carlos / Kallyne
+ */
 public class NaoEncontradoVisual extends JFrame implements ActionListener {
-	private static final long serialVersionUID = -7428543319514946053L;
+
 	private final JLabel mensagemFalha;
 	private final JButton botaoReiniciar;
 	private final JButton botaoOutro;

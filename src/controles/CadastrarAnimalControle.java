@@ -4,7 +4,7 @@ import javax.swing.JButton;
 
 import data.Dados;
 import modelos.Animal;
-import modelos.Dono;
+import visualizacao.AnimalVisual;
 import visualizacao.CadastrarAnimalVisual;
 
 public class CadastrarAnimalControle {
@@ -19,6 +19,7 @@ public class CadastrarAnimalControle {
             new CadastrarAnimalVisual().setVisible(true);
             visualizacao.dispose();
         } else if (botaoSelecionado.equals(visualizacao.getBotaoCancelar())) {
+            new AnimalVisual().setVisible(true);
             visualizacao.dispose();
         }
     }
@@ -28,14 +29,14 @@ public class CadastrarAnimalControle {
             Animal ParaCadastrar = criaAnimal();
 
             if (ParaCadastrar != null) {
-                Dados.getDono().get(0).getAnimais().add(ParaCadastrar);
+                Dados.getDonos().get(0).getAnimais().add(ParaCadastrar);
             }
         } else {
             visualizacao.getSelecionaDono().setToolTipText(null);
             visualizacao.getCadastrarNome().setText(null);
             visualizacao.getCadastrarPorte().setText(null);
-            // visualizacao.getCadastrarSexo().setText(null); botao feminino e masculino
-            visualizacao.getTextoBiografia().setText(null);
+            visualizacao.getBotaoMasculino().setSelected(false);
+            visualizacao.getBotaoFeminino().setSelected(false);
             visualizacao.getCadastrarIdade().setText(null);
             visualizacao.getCadastrarEspecie().setText(null);
             visualizacao.getTextoCuidados().setText(null);
@@ -44,27 +45,37 @@ public class CadastrarAnimalControle {
     }
 
     public Animal criaAnimal() {
-        Animal Animal = new Animal();
-        String nome, porte, biografia, especie, cuidados, idade;
+        Animal animal = new Animal();
+        String nome, porte, especie, cuidados, idade, sexo;
 
         nome = visualizacao.getCadastrarNome().getText();
-        Animal.setNome(nome);
+        animal.setNome(nome);
 
         porte = visualizacao.getCadastrarPorte().getText();
-        Animal.setPorte(porte);
-
-        biografia = visualizacao.getTextoBiografia().getText();
-        Animal.setBiografia(biografia);
+        animal.setPorte(porte);
 
         idade = visualizacao.getCadastrarIdade().getText();
-        Animal.setIdade(idade);
+        try {
+            animal.setIdade(Integer.parseInt(idade));
+        } catch (NumberFormatException error) {
+            return null;
+        }
 
         especie = visualizacao.getCadastrarEspecie().getText();
-        Animal.setEspecie(especie);
+        animal.setEspecie(especie);
 
         cuidados = visualizacao.getTextoCuidados().getText();
-        Animal.setCuidados(cuidados);
+        animal.setCuidados(cuidados);
 
-        return Animal;
+        if (visualizacao.getBotaoMasculino().isSelected()) {
+            sexo = "Masculino";
+        } else if (visualizacao.getBotaoFeminino().isSelected()) {
+            sexo = "Feminino";
+        } else {
+            return null;
+        }
+        animal.setSexo(sexo);
+
+        return animal;
     }
 }

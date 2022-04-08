@@ -39,7 +39,7 @@ public class DeletaAnfitriaoVisual extends JFrame implements ActionListener {
 
 		this.selecionaAnfitriao = new JComboBox<String>();
 		this.selecionaAnfitriao.setBounds(221, 38, 96, 22);
-		this.selecionaAnfitriao.setModel(controle.getAnfitriao());
+		this.selecionaAnfitriao.setModel(controle.getAnfitrioes());
 		getContentPane().add(selecionaAnfitriao);
 
 		this.confirmacaoDelecao = new JLabel("Deseja mesmo deletar?");
@@ -89,7 +89,6 @@ public class DeletaAnfitriaoVisual extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		controle.executarBotao(e.getSource());
-
 	}
 
 }

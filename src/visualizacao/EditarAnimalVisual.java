@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class EditarAnimalVisual extends JFrame implements ActionListener {
-	private static final long serialVersionUID = 3649323134053630551L;
+
 	private final JLabel mensagemInicial;
 	private final JLabel buscaPet;
 	private final JLabel retornaPets;

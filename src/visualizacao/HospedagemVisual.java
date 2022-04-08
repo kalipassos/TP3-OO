@@ -11,7 +11,7 @@ import javax.swing.SwingConstants;
 import controles.HospedagemControle;
 
 public class HospedagemVisual extends JFrame implements ActionListener {
-	private static final long serialVersionUID = -1061801076605179407L;
+
 	private final JLabel mensagemInicial;
 	private final JButton botaoCadastroHospedagem;
 	private final JButton botaoBuscarHospedagem;

@@ -13,8 +13,13 @@ import javax.swing.SwingConstants;
 
 import controles.VisualizaAnimalControle;
 
+/**
+ * Interface da visualizacao de um Animal.
+ * 
+ * @author Carlos / Kallyne
+ */
 public class VisualizaAnimalVisual extends JFrame implements ActionListener {
-	private static final long serialVersionUID = -7435614229544076755L;
+
 	private final JLabel mensagemInicial;
 	private final JLabel rotuloDono;
 	private final JLabel rotuloPet;
@@ -24,7 +29,6 @@ public class VisualizaAnimalVisual extends JFrame implements ActionListener {
 	private final JLabel rotuloIdade;
 	private final JLabel rotuloEspecie;
 	private final JLabel rotuloCuidados;
-	private final JLabel rotuloBiografia;
 	private final JTextField textoNome;
 	private final JTextField textoPorte;
 	private final JTextField textoSexo;
@@ -39,6 +43,9 @@ public class VisualizaAnimalVisual extends JFrame implements ActionListener {
 	private final JComboBox<String> selecionaPet;
 	private final VisualizaAnimalControle controle;
 
+	/**
+	 * Construtor para a view
+	 */
 	public VisualizaAnimalVisual() {
 		getContentPane().setLayout(null);
 
@@ -65,6 +72,7 @@ public class VisualizaAnimalVisual extends JFrame implements ActionListener {
 
 		this.selecionaPet = new JComboBox<String>();
 		this.selecionaPet.setBounds(194, 66, 87, 22);
+		this.selecionaPet.addActionListener(this);
 		getContentPane().add(selecionaPet);
 
 		this.rotuloNome = new JLabel("Nome");
@@ -105,10 +113,6 @@ public class VisualizaAnimalVisual extends JFrame implements ActionListener {
 		this.rotuloCuidados = new JLabel("Cuidados");
 		this.rotuloCuidados.setBounds(236, 193, 46, 14);
 		getContentPane().add(rotuloCuidados);
-
-		this.rotuloBiografia = new JLabel("Biografia");
-		this.rotuloBiografia.setBounds(10, 258, 46, 14);
-		getContentPane().add(rotuloBiografia);
 
 		this.textoIdade = new JTextField();
 		this.textoIdade.setBounds(308, 117, 86, 20);

@@ -12,6 +12,11 @@ import javax.swing.SwingConstants;
 
 import controles.VisualizaDonoControle;
 
+/**
+ * Interface da visualizacao de um Dono.
+ * 
+ * @author Carlos / Kallyne
+ */
 public class VisualizaDonoVisual extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 4015662900789725098L;
 	private final JLabel mensagemInicial;
@@ -33,6 +38,9 @@ public class VisualizaDonoVisual extends JFrame implements ActionListener {
 	private final JComboBox<String> verPet;
 	private final VisualizaDonoControle controle;
 
+	/**
+	 * Construtor para a view
+	 */
 	public VisualizaDonoVisual() {
 		getContentPane().setLayout(null);
 

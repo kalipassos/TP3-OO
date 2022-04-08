@@ -1,16 +1,14 @@
 package App;
 
-//import javax.swing.JFrame;
-
 import data.Dados;
 import visualizacao.MenuVisual;
 
+/**
+ * Criado para ser o menu principal do programa
+ */
 public class App {
-
 	public static void main(String[] args) {
 		Dados.adicionarDono();
-		// JFrame MenuVisual = new JFrame();
 		new MenuVisual().setVisible(true);
 	}
-
 }

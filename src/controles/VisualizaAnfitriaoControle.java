@@ -22,7 +22,7 @@ public class VisualizaAnfitriaoControle {
 	public DefaultComboBoxModel<String> getAnfitriao(String nomeAnfitriao) {
 		Anfitriao anfitriaoEscolhido = null;
 
-		for (Anfitriao anfitriao : Dados.getAnfitriao()) {
+		for (Anfitriao anfitriao : Dados.getAnfitrioes()) {
 			if (anfitriao.getNome().equals(nomeAnfitriao)) {
 				anfitriaoEscolhido = anfitriao;
 			}
@@ -32,8 +32,8 @@ public class VisualizaAnfitriaoControle {
 		}
 
 		DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<String>();
-		for (int i = 0; i < anfitriaoEscolhido.getHospedagem().size(); i++) {
-			modelo.addElement(anfitriaoEscolhido.getHospedagem().get(i).getDataEntrada());
+		for (int i = 0; i < anfitriaoEscolhido.getHospedagens().size(); i++) {
+			modelo.addElement(anfitriaoEscolhido.getHospedagens().get(i).getDataEntrada());
 		}
 		return modelo;
 	}
@@ -45,7 +45,7 @@ public class VisualizaAnfitriaoControle {
 
 	public DefaultComboBoxModel<String> getAnfitriao() {
 		DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<String>();
-		for (Anfitriao anfitriao : Dados.getAnfitriao()) {
+		for (Anfitriao anfitriao : Dados.getAnfitrioes()) {
 			modelo.addElement(anfitriao.getNome());
 		}
 		return modelo;
@@ -80,7 +80,7 @@ public class VisualizaAnfitriaoControle {
 	}
 
 	public static Anfitriao getAnfitriaoObj(int index) {
-		return Dados.getAnfitriao().get(index);
+		return Dados.getAnfitrioes().get(index);
 	}
 
 	public static void setField(JTextField field, String parametro) {

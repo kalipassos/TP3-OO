@@ -33,5 +33,4 @@ public class AnfitriaoControle {
 			visualizacao.dispose();
 		}
 	}
-
 }

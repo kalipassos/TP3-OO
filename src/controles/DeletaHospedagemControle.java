@@ -19,7 +19,7 @@ public class DeletaHospedagemControle {
 	public DefaultComboBoxModel<String> getHospedagem(String nomeAnfitriao) {
 		Anfitriao anfitriaoEscolhido = null;
 
-		for (Anfitriao anfitriao : Dados.getAnfitriao()) {
+		for (Anfitriao anfitriao : Dados.getAnfitrioes()) {
 			if (anfitriao.getNome().equals(nomeAnfitriao)) {
 				anfitriaoEscolhido = anfitriao;
 			}
@@ -30,8 +30,8 @@ public class DeletaHospedagemControle {
 		}
 
 		DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<String>();
-		for (int i = 0; i < anfitriaoEscolhido.getHospedagem().size(); i++) {
-			modelo.addElement(anfitriaoEscolhido.getHospedagem().get(i).getDataEntrada());
+		for (int i = 0; i < anfitriaoEscolhido.getHospedagens().size(); i++) {
+			modelo.addElement(anfitriaoEscolhido.getHospedagens().get(i).getDataEntrada());
 		}
 		return modelo;
 	}
@@ -43,7 +43,7 @@ public class DeletaHospedagemControle {
 
 	public DefaultComboBoxModel<String> getAnfitriao() {
 		DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<String>();
-		for (Anfitriao anfitriao : Dados.getAnfitriao()) {
+		for (Anfitriao anfitriao : Dados.getAnfitrioes()) {
 			modelo.addElement(anfitriao.getNome());
 		}
 		return modelo;
@@ -63,8 +63,8 @@ public class DeletaHospedagemControle {
 	}
 
 	private void deletarHospedagem(int hospedagemSelecionado, int anfitriaoSelecionado) {
-		Anfitriao anfitriaoEscolhido = Dados.getAnfitriao().get(anfitriaoSelecionado);
-		anfitriaoEscolhido.getHospedagem().remove(hospedagemSelecionado);
+		Anfitriao anfitriaoEscolhido = Dados.getAnfitrioes().get(anfitriaoSelecionado);
+		anfitriaoEscolhido.getHospedagens().remove(hospedagemSelecionado);
 		atualizarListaHospedagem();
 	}
 }

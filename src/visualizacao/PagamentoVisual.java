@@ -13,8 +13,13 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+/**
+ * Interface da visualizacao do Pagamento da Hospedagem.
+ * 
+ * @author Carlos / Kallyne
+ */
 public class PagamentoVisual extends JFrame implements ActionListener {
-	private static final long serialVersionUID = -4260562776542972419L;
+
 	private final JLabel mensagemInicial;
 	private final JLabel rotuloPagamento;
 	private final JLabel rotuloHospedagem;

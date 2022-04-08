@@ -12,8 +12,13 @@ import javax.swing.SwingConstants;
 
 import controles.VisualizaAnfitriaoControle;
 
+/**
+ * Interface da visualizacao de um Anfitriao.
+ * 
+ * @author Carlos / Kallyne
+ */
 public class VisualizaAnfitriaoVisual extends JFrame implements ActionListener {
-	private static final long serialVersionUID = 453867455466484883L;
+
 	private final JLabel mensagemInicial;
 	private final JLabel rotuloVisualizaAnfitriao;
 	private final JLabel rotuloNome;
@@ -33,6 +38,9 @@ public class VisualizaAnfitriaoVisual extends JFrame implements ActionListener {
 	private final JComboBox<String> mostraHospedagens;// lista todas as hospedagens
 	private final VisualizaAnfitriaoControle controle;
 
+	/**
+	 * Construtor para view
+	 */
 	public VisualizaAnfitriaoVisual() {
 		getContentPane().setLayout(null);
 

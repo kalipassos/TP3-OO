@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 import controles.EditarAnfitriaoControle;
 
 public class EditarAnfitriaoVisual extends JFrame implements ActionListener {
-	private static final long serialVersionUID = -5917564379856759625L;
+
 	private final JLabel mensagemInicial;
 	private final JLabel rotuloAnfitriao;
 	private final JLabel aviso;

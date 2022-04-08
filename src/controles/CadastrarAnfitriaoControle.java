@@ -22,22 +22,19 @@ public class CadastrarAnfitriaoControle {
       Anfitriao anfiParaCadastrar = criaAnfitriao();
 
       if (anfiParaCadastrar != null) {
-        Dados.getAnfitriao().add(anfiParaCadastrar);
+        Dados.getAnfitrioes().add(anfiParaCadastrar);
       }
     } else {
       visualizacao.getTextoNome().setText(null);
       visualizacao.getTextoEndereco().setText(null);
       visualizacao.getTextoTelefone().setText(null);
       visualizacao.getTextoCPF().setText(null);
-      visualizacao.getTextoHospedagem().setText(null);
-
     }
   }
 
   private Anfitriao criaAnfitriao() {
     Anfitriao anfitriao = new Anfitriao();
     String nome, endereco, telefone, CPF;
-    Hospedagem hospedagem;
 
     nome = visualizacao.getTextoNome().getText();
     anfitriao.setNome(nome);
@@ -51,10 +48,6 @@ public class CadastrarAnfitriaoControle {
     telefone = visualizacao.getTextoTelefone().getText();
     anfitriao.setTelefone(telefone);
 
-    hospedagem = visualizacao.getTextoHospedagem().getText();
-    anfitriao.setHospedagem(hospedagem);
-
     return anfitriao;
   }
-
 }

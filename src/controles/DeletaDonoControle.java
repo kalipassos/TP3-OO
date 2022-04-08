@@ -3,6 +3,7 @@ package controles;
 import javax.swing.DefaultComboBoxModel;
 
 import data.Dados;
+import modelos.Animal;
 import modelos.Dono;
 import visualizacao.DeletaDonoVisual;
 import visualizacao.DonoVisual;
@@ -17,22 +18,17 @@ public class DeletaDonoControle {
     }
 
     public DefaultComboBoxModel<String> getAnimais(String nomeDono) {
-        Dono donoEscolhido = null;
-
-        for (Dono dono : Dados.getDono()) {
-            if (dono.getNome().equals(nomeDono)) {
-                donoEscolhido = dono;
-            }
-        }
+        Dono donoEscolhido = Dados.getDonoPeloNome(nomeDono);
 
         if (donoEscolhido == null) {
             return null;
         }
 
         DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<String>();
-        for (int i = 0; i < donoEscolhido.size(); i++) {
-            modelo.addElement(donoEscolhido.get(i).getNome());
+        for (Animal animal : donoEscolhido.getAnimais()) {
+            modelo.addElement(animal.getNome());
         }
+
         return modelo;
     }
 
@@ -48,7 +44,7 @@ public class DeletaDonoControle {
 
     public DefaultComboBoxModel<String> getDono() {
         DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<String>();
-        for (Dono dono : Dados.getDono()) {
+        for (Dono dono : Dados.getDonos()) {
             modelo.addElement(dono.getNome());
         }
         return modelo;
@@ -68,7 +64,7 @@ public class DeletaDonoControle {
     }
 
     private void deletarDono(int donoSelecionado) {
-        Dados.getDono().remove(donoSelecionado);
+        Dados.getDonos().remove(donoSelecionado);
         atualizarListaDonos();
     }
 }

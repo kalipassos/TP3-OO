@@ -6,7 +6,6 @@ import data.Dados;
 import modelos.Dono;
 import visualizacao.CadastrarDonoVisual;
 import visualizacao.DonoVisual;
-import visualizacao.MenuVisual;
 
 public class CadastrarDonoControle {
 
@@ -32,7 +31,7 @@ public class CadastrarDonoControle {
             Dono ParaCadastrar = criaDono();
 
             if (ParaCadastrar != null) {
-                Dados.getDono().add(ParaCadastrar);
+                Dados.getDonos().add(ParaCadastrar);
                 visualizacao.dispose();
             }
         } else {

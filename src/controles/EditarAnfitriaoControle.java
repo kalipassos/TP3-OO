@@ -16,17 +16,14 @@ public class EditarAnfitriaoControle {
 
     public void executarBotao(JButton botaoSelecionado) {
         if (visualizacao.getSelecionaAnfitriao() != null) {
-            for (int i = 0; i < Dados.getAnfitriao().size(); i++) {
-                if (Dados.getAnfitriao().get(i).getNome().equals(visualizacao.getSelecionaAnfitriao())) {
-                    visualizacao.getTextoNome().setText(Dados.getAnfitriao().get(i).getNome());
-                    visualizacao.getTextoTelefone().setText(Dados.getAnfitriao().get(i).getTelefone());
-                    visualizacao.getTextoEndereco().setText(Dados.getAnfitriao().get(i).getEndereco());
-
+            for (int i = 0; i < Dados.getAnfitrioes().size(); i++) {
+                if (Dados.getAnfitrioes().get(i).getNome().equals(visualizacao.getSelecionaAnfitriao())) {
+                    visualizacao.getTextoNome().setText(Dados.getAnfitrioes().get(i).getNome());
+                    visualizacao.getTextoTelefone().setText(Dados.getAnfitrioes().get(i).getTelefone());
+                    visualizacao.getTextoEndereco().setText(Dados.getAnfitrioes().get(i).getEndereco());
                 }
             }
-
         }
-
     }
 
 }

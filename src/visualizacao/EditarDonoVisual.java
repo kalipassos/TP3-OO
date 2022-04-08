@@ -12,7 +12,6 @@ import javax.swing.SwingConstants;
 
 public class EditarDonoVisual extends JFrame implements ActionListener {
 
-	private static final long serialVersionUID = 5032313266242852314L;
 	private final JLabel mensagemInicial;
 	private final JLabel rotuloDono;
 	private final JLabel rotuloNome;

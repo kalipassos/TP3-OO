@@ -10,9 +10,12 @@ import javax.swing.SwingConstants;
 
 import controles.MenuControle;
 
+/**
+ * Interface da visualizacao do Pagamento da Hospedagem.
+ * 
+ * @author Carlos / Kallyne
+ */
 public class MenuVisual extends JFrame implements ActionListener {
-
-	private static final long serialVersionUID = 1L;
 
 	private final JLabel mensagemInicialMenu;
 	private final JButton botaoOpcaoDono;

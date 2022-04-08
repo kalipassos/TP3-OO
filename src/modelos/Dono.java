@@ -1,52 +1,64 @@
 package modelos;
 
-import java.awt.Component;
 import java.util.ArrayList;
 
 public class Dono extends Pessoa {
-
+	/**
+	 * Criação da ArrayList que vai conter os animais pertencentes a um dono
+	 */
 	private final ArrayList<Animal> animais;
 
-	public Dono() { // construtor do Dono que recebe os atributos da classe abstrata Pessoa
+	/**
+	 * Construtor
+	 */
+	public Dono() {
 		super();
 		this.animais = new ArrayList<>();
 	}
 
-	public Dono(String nome, String endereco, String telefone, String CPF) { // construtor que recebe atributos
-																				// especificos de Pessoa
+	/**
+	 * Construtor que recebe os valores
+	 * 
+	 * @param nome
+	 * @param endereco
+	 * @param telefone
+	 * @param CPF
+	 */
+	public Dono(String nome, String endereco, String telefone, String CPF) {
 		super(nome, endereco, telefone, CPF);
 		this.animais = new ArrayList<>();
-
 	}
 
-	/*
-	 * public Animal buscarAnimal(String nome) { nome = Scan.nextLine(); for (Animal
-	 * animal : animais) { if (animal.getNome().equals(nome)) {
-	 * System.out.println("Animal encontrado"); return animal;
+	/**
+	 * Getter da ArrayList de animais
 	 * 
-	 * } } return null; }
-	 * 
-	 * public void removerAnimal(Animal animal) { if (this.animais.contains(animal))
-	 * { this.animais.remove(animal); }
-	 * 
-	 * }
+	 * @return
 	 */
 	public ArrayList<Animal> getAnimais() {
 		return animais;
 	}
 
-	public Component getDono() {
-		return null;
+	/**
+	 * Adicao do animal
+	 * 
+	 * @param animal
+	 */
+	public void addAnimal(Animal animal) {
+		this.animais.add(animal);
 	}
 
-	public void remove(int donoSelecionado) {
-	}
-
-	public int size() {
-		return 0;
-	}
-
-	public Pessoa get(int i) {
+	/**
+	 * Busca um animal pelo nome
+	 * 
+	 * @param nomeAnimal
+	 * @return
+	 */
+	public Animal getAnimalPeloNome(String nomeAnimal) {
+		for (Animal animal : animais) {
+			if (animal.getNome().equals(nomeAnimal)) {
+				return animal;
+			}
+		}
 		return null;
 	}
 }

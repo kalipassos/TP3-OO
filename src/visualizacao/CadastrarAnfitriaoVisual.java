@@ -19,12 +19,10 @@ public class CadastrarAnfitriaoVisual extends JFrame implements ActionListener {
 	private final JLabel rotuloEndereco;
 	private final JLabel rotuloTelefone;
 	private final JLabel rotuloCPF;
-	private final JLabel rotuloHospedagem;
 	private final JTextField textoNome;
 	private final JTextField textoEndereco;
 	private final JTextField textoTelefone;
 	private final JTextField textoCPF;
-	private final JTextField textoHospedagem;
 	private final JButton botaoCadastrar;
 	private final JButton botaoCancelar;
 	private final CadastrarAnfitriaoControle controle;
@@ -75,15 +73,6 @@ public class CadastrarAnfitriaoVisual extends JFrame implements ActionListener {
 		this.textoCPF.setColumns(10);
 		getContentPane().add(textoCPF);
 
-		this.rotuloHospedagem = new JLabel("Hospedagem");
-		this.rotuloHospedagem.setBounds(29, 222, 79, 14);
-		getContentPane().add(rotuloHospedagem);
-
-		this.textoHospedagem = new JTextField();
-		this.textoHospedagem.setBounds(144, 219, 86, 20);
-		this.textoHospedagem.setColumns(10);
-		getContentPane().add(textoHospedagem);
-
 		this.botaoCadastrar = new JButton("Cadastrar");
 		this.botaoCadastrar.setBounds(66, 377, 89, 23);
 		this.botaoCadastrar.addActionListener(this);
@@ -97,7 +86,6 @@ public class CadastrarAnfitriaoVisual extends JFrame implements ActionListener {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setSize(450, 450);
 		this.setResizable(false);
-
 	}
 
 	public JTextField getTextoNome() {
@@ -116,10 +104,6 @@ public class CadastrarAnfitriaoVisual extends JFrame implements ActionListener {
 		return textoCPF;
 	}
 
-	public JTextField getTextoHospedagem() {
-		return textoHospedagem;
-	}
-
 	public JButton getBotaoCadastrar() {
 		return botaoCadastrar;
 	}
@@ -130,8 +114,6 @@ public class CadastrarAnfitriaoVisual extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
 		controle.cadastroAnfitriao((JButton) e.getSource());
-
 	}
 }

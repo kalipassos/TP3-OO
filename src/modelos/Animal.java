@@ -3,26 +3,17 @@ package modelos;
 public class Animal {
     private String nome;
     private String especie;
-    private String biografia;
     private String porte;
-    private int idade;
+    private Integer idade;
     private String sexo;
     private String cuidados;
 
-    public Animal(String nome, String especie, String porte, int idade, String sexo, String cuidados) { // Construtor
+    /**
+     * Construtor
+     */
+    public Animal(String nome, String especie, String porte, Integer idade, String sexo, String cuidados) {
         this.nome = nome;
         this.especie = especie;
-        this.porte = porte;
-        this.idade = idade;
-        this.sexo = sexo;
-        this.cuidados = cuidados;
-    }
-
-    public Animal(String nome, String especie, String biografia, String porte, int idade, String sexo,
-            String cuidados) { // Construtor com biografia
-        this.nome = nome;
-        this.especie = especie;
-        this.biografia = biografia;
         this.porte = porte;
         this.idade = idade;
         this.sexo = sexo;
@@ -32,7 +23,6 @@ public class Animal {
     public Animal() {
     }
 
-    // getters e setters para todos os atributos
     public String getNome() {
         return nome;
     }
@@ -49,14 +39,6 @@ public class Animal {
         this.especie = especie;
     }
 
-    public String getBiografia() {
-        return biografia;
-    }
-
-    public void setBiografia(String biografia) {
-        this.biografia = biografia;
-    }
-
     public String getPorte() {
         return porte;
     }
@@ -65,11 +47,11 @@ public class Animal {
         this.porte = porte;
     }
 
-    public int getIdade() {
+    public Integer getIdade() {
         return idade;
     }
 
-    public void setIdade(int idade) {
+    public void setIdade(Integer idade) {
         this.idade = idade;
     }
 
@@ -89,11 +71,14 @@ public class Animal {
         this.cuidados = cuidados;
     }
 
+    /**
+     * toString serve para imprimir os dados do animal.
+     */
     @Override
-    public String toString() { // toString para imprimir os dados do animal
+    public String toString() {
         return String
                 .format("O animal " + nome + " é um(a) " + especie + " " + sexo + " de porte " + porte + " e cuidados "
-                        + cuidados + "\n Biografia: " + biografia + "\n");
+                        + cuidados + "\n");
     }
 
 }

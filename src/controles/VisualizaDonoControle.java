@@ -21,7 +21,7 @@ public class VisualizaDonoControle {
 	public DefaultComboBoxModel<String> getDono(String nomeDono) {
 		Dono donoEscolhido = null;
 
-		for (Dono dono : Dados.getDono()) {
+		for (Dono dono : Dados.getDonos()) {
 			if (dono.getNome().equals(nomeDono)) {
 				donoEscolhido = dono;
 			}
@@ -43,7 +43,7 @@ public class VisualizaDonoControle {
 
 	public DefaultComboBoxModel<String> getDono() {
 		DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<String>();
-		for (Dono dono : Dados.getDono()) {
+		for (Dono dono : Dados.getDonos()) {
 			modelo.addElement(dono.getNome());
 		}
 		return modelo;
@@ -75,7 +75,7 @@ public class VisualizaDonoControle {
 	}
 
 	public static Dono getDonoObj(int index) {
-		return Dados.getDono().get(index);
+		return Dados.getDonos().get(index);
 	}
 
 	public static void setField(JTextField field, String parametro) {

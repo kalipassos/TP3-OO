@@ -3,6 +3,7 @@ package visualizacao;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -112,10 +113,14 @@ public class CadastrarDonoVisual extends JFrame implements ActionListener {
 		return botaoCancelar;
 	}
 
+	public AbstractButton getMensagemInicial() {
+		return null;
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		controle.executaCadastroD((JButton) e.getSource());
+		controle.executaCadastroD(e.getSource());
 	}
 
 }

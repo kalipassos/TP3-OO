@@ -46,6 +46,7 @@ public class EditarAnfitriaoVisual extends JFrame implements ActionListener {
 
 		this.selecionaAnfitriao = new JComboBox<String>();
 		this.selecionaAnfitriao.setBounds(180, 46, 108, 22);
+		this.selecionaAnfitriao.setModel(controle.getAnfitriao());
 		getContentPane().add(selecionaAnfitriao);
 
 		this.aviso = new JLabel("Preencha os campos a alterar(CPF NAO E ALTERAVEL)");
@@ -93,7 +94,7 @@ public class EditarAnfitriaoVisual extends JFrame implements ActionListener {
 		this.botaoAlterar.addActionListener(this);
 		getContentPane().add(botaoAlterar);
 
-		this.botaoReverter = new JButton("Reverter");
+		this.botaoReverter = new JButton("Voltar");
 		this.botaoReverter.setBounds(284, 348, 89, 23);
 		this.botaoReverter.addActionListener(this);
 		getContentPane().add(botaoReverter);
@@ -134,7 +135,7 @@ public class EditarAnfitriaoVisual extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		controle.executarBotao((JButton) e.getSource());
+		controle.executarBotao(e.getSource());
 
 	}
 

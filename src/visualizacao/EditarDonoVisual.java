@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import controles.EditarDonoControle;
+
 public class EditarDonoVisual extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 5032313266242852314L;
@@ -25,9 +27,12 @@ public class EditarDonoVisual extends JFrame implements ActionListener {
 	private final JButton botaoAlterar;
 	private final JButton botaoReverter;
 	private JComboBox<String> selecionaDono;
+	private final EditarDonoControle controle;
 
 	public EditarDonoVisual() {
 		getContentPane().setLayout(null);
+
+		controle = new EditarDonoControle(this);
 
 		this.mensagemInicial = new JLabel("Ferramenta de Edicao");
 		this.mensagemInicial.setHorizontalAlignment(SwingConstants.CENTER);
@@ -40,6 +45,7 @@ public class EditarDonoVisual extends JFrame implements ActionListener {
 
 		this.selecionaDono = new JComboBox<String>();
 		this.selecionaDono.setBounds(179, 36, 86, 22);
+		this.selecionaDono.setModel(controle.getDono());
 		getContentPane().add(selecionaDono);
 
 		this.rotuloNome = new JLabel("Nome");
@@ -79,7 +85,7 @@ public class EditarDonoVisual extends JFrame implements ActionListener {
 		this.botaoAlterar.addActionListener(this);
 		getContentPane().add(botaoAlterar);
 
-		this.botaoReverter = new JButton("Reverter");
+		this.botaoReverter = new JButton("Voltar");
 		this.botaoReverter.setBounds(299, 330, 89, 23);
 		this.botaoReverter.addActionListener(this);
 		getContentPane().add(botaoReverter);
@@ -116,7 +122,7 @@ public class EditarDonoVisual extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		controle.executarBotao(e.getSource());
 
 	}
 }

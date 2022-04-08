@@ -1,10 +1,8 @@
 package controles;
 
-import javax.swing.JButton;
-
 import data.Dados;
 import modelos.Anfitriao;
-import modelos.Hospedagem;
+import visualizacao.AnfitriaoVisual;
 import visualizacao.CadastrarAnfitriaoVisual;
 
 public class CadastrarAnfitriaoControle {
@@ -16,45 +14,24 @@ public class CadastrarAnfitriaoControle {
     this.visualizacao = visualizacao;
   }
 
-  public void cadastroAnfitriao(JButton botaoSelecionado) {
+  public void executaCadastroD(Object source) {
+    if (source == visualizacao.getBotaoCadastrar()) {
+      Anfitriao anfitriao = new Anfitriao();
+      anfitriao.setNome(visualizacao.getTextoNome().getText());
+      anfitriao.setEndereco(visualizacao.getTextoEndereco().getText());
+      anfitriao.setTelefone(visualizacao.getTextoTelefone().getText());
+      anfitriao.setCPF(visualizacao.getTextoCPF().getText());
+      Dados.getAnfitriao().add(anfitriao);
+      visualizacao.dispose();
+      if (visualizacao.getTextoNome().getText().equals("") || visualizacao.getTextoEndereco().getText().equals("")
+          || visualizacao.getTextoTelefone().getText().equals("") || visualizacao.getTextoCPF().getText().equals("")) {
+        visualizacao.getMensagemInicial().setText("Preencha os campos");
 
-    if (botaoSelecionado.equals(visualizacao.getBotaoCadastrar())) {
-      Anfitriao anfiParaCadastrar = criaAnfitriao();
-
-      if (anfiParaCadastrar != null) {
-        Dados.getAnfitriao().add(anfiParaCadastrar);
+      } else if (source == visualizacao.getBotaoCadastrar()) {
+        new AnfitriaoVisual().setVisible(true);
+        visualizacao.dispose();
       }
-    } else {
-      visualizacao.getTextoNome().setText(null);
-      visualizacao.getTextoEndereco().setText(null);
-      visualizacao.getTextoTelefone().setText(null);
-      visualizacao.getTextoCPF().setText(null);
-      visualizacao.getTextoHospedagem().setText(null);
 
     }
   }
-
-  private Anfitriao criaAnfitriao() {
-    Anfitriao anfitriao = new Anfitriao();
-    String nome, endereco, telefone, CPF;
-    Hospedagem hospedagem;
-
-    nome = visualizacao.getTextoNome().getText();
-    anfitriao.setNome(nome);
-
-    CPF = visualizacao.getTextoCPF().getText();
-    anfitriao.setCPF(CPF);
-
-    endereco = visualizacao.getTextoEndereco().getText();
-    anfitriao.setEndereco(endereco);
-
-    telefone = visualizacao.getTextoTelefone().getText();
-    anfitriao.setTelefone(telefone);
-
-    hospedagem = visualizacao.getTextoHospedagem().getText();
-    anfitriao.setHospedagem(hospedagem);
-
-    return anfitriao;
-  }
-
 }

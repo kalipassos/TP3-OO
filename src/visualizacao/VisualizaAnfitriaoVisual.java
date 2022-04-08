@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import controles.VisualizaAnfitriaoControle;
+
 public class VisualizaAnfitriaoVisual extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 453867455466484883L;
 	private final JLabel mensagemInicial;
@@ -27,11 +29,14 @@ public class VisualizaAnfitriaoVisual extends JFrame implements ActionListener {
 	private final JButton botaoEdita;
 	private final JButton botaoDeleta;
 	private final JButton botaoVolta;
-	private final JComboBox<String> selecionaAnfitriao;// seleciona um anfitriao para visualizar
+	private JComboBox<String> selecionaAnfitriao;// seleciona um anfitriao para visualizar
 	private final JComboBox<String> mostraHospedagens;// lista todas as hospedagens
+	private final VisualizaAnfitriaoControle controle;
 
 	public VisualizaAnfitriaoVisual() {
 		getContentPane().setLayout(null);
+
+		controle = new VisualizaAnfitriaoControle(this);
 
 		this.mensagemInicial = new JLabel("Ferramenta de Visualizacao");
 		this.mensagemInicial.setHorizontalAlignment(SwingConstants.CENTER);
@@ -44,6 +49,8 @@ public class VisualizaAnfitriaoVisual extends JFrame implements ActionListener {
 
 		this.selecionaAnfitriao = new JComboBox<String>();
 		this.selecionaAnfitriao.setBounds(252, 25, 91, 22);
+		this.selecionaAnfitriao.setModel(controle.getAnfitriao());
+		this.selecionaAnfitriao.addActionListener(this);
 		getContentPane().add(selecionaAnfitriao);
 
 		this.rotuloNome = new JLabel("Nome");
@@ -51,6 +58,7 @@ public class VisualizaAnfitriaoVisual extends JFrame implements ActionListener {
 		getContentPane().add(rotuloNome);
 
 		this.textoNome = new JTextField();
+
 		this.textoNome.setBounds(252, 74, 86, 20);
 		this.textoNome.setColumns(10);
 		getContentPane().add(textoNome);
@@ -102,12 +110,12 @@ public class VisualizaAnfitriaoVisual extends JFrame implements ActionListener {
 
 		this.botaoDeleta = new JButton("Deletar");
 		this.botaoDeleta.setBounds(29, 361, 89, 23);
-		this.botaoReinicia.addActionListener(this);
+		this.botaoDeleta.addActionListener(this);
 		getContentPane().add(botaoDeleta);
 
 		this.botaoVolta = new JButton("Voltar");
 		this.botaoVolta.setBounds(252, 361, 89, 23);
-		this.botaoReinicia.addActionListener(this);
+		this.botaoVolta.addActionListener(this);
 		getContentPane().add(botaoVolta);
 
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -116,9 +124,54 @@ public class VisualizaAnfitriaoVisual extends JFrame implements ActionListener {
 
 	}
 
+	public JComboBox<String> getSelecionaAnfitriao() {
+		return selecionaAnfitriao;
+	}
+
+	public void setSelecionaAnfitriao(JComboBox<String> selecionaAnfitriao) {
+		this.selecionaAnfitriao = selecionaAnfitriao;
+	}
+
+	public JTextField getTextoNome() {
+		return textoNome;
+	}
+
+	public JTextField getTextoEndereco() {
+		return textoEndereco;
+	}
+
+	public JTextField getTextoTelefone() {
+		return textoTelefone;
+	}
+
+	public JTextField getTextoCPF() {
+		return textoCPF;
+	}
+
+	public JButton getBotaoReinicia() {
+		return botaoReinicia;
+	}
+
+	public JButton getBotaoEdita() {
+		return botaoEdita;
+	}
+
+	public JButton getBotaoDeleta() {
+		return botaoDeleta;
+	}
+
+	public JButton getBotaoVolta() {
+		return botaoVolta;
+	}
+
+	public JComboBox<String> getMostraHospedagens() {
+		return mostraHospedagens;
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		controle.executarBotao(e.getSource());
+		System.out.println(this.selecionaAnfitriao.getSelectedItem());
 
 	}
 
